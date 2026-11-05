@@ -1,0 +1,31 @@
+---
+name: caamt-cronograma
+description: Cronograma de postagens da subseção na aba Cronograma da planilha, com pautas pesquisadas na aba Pautas. Use quando a pessoa falar em cronograma, calendário, planejar o mês, "o que postar esta semana", evento na cidade, ou quando um post for feito ou publicado.
+---
+
+# Cronograma de postagens
+
+## Colunas (aba Cronograma)
+`Data | Tema | Pauta | Formato | Roteiro | Legenda | Hashtags | Primeiro comentário | Arte (link) | Status | Fonte | Atualizado em`
+Status: ideia, pronto, publicado. Tema vem de `linha-editorial.md` (ler antes).
+
+## Montar ou estender
+1. Ler a linha editorial, a aba Cronograma (o que já existe) e `memoria/` (rotina: dias e
+   horários em que a pessoa posta).
+2. Eventos: os que a pessoa contar e os vistos nos perfis públicos (agente `perfis-instagram`).
+   Cada evento ganha posts **antes** (convite), **no dia** (Stories) e **depois** (cortes, fotos).
+3. Pautas de fora (segurança na advocacia, lei nova, jurisprudência, benefício da CAAMT):
+   agente `pauta-pesquisador`, que devolve título, resumo e fonte. Cada pauta vira uma linha na
+   aba Pautas (`Data | Tema | Título | Fonte | Resumo | Usada em`). Sem fonte, não entra.
+4. Gravar só as linhas novas ou as células que mudaram. Mostrar as próximas 2 semanas numa
+   tabela curta.
+
+## Atualizar
+- A pessoa muda a planilha à mão: respeitar. Pede pelo chat: mudar só o pedido.
+- O Claude percebe (post publicado, evento novo, data passada sem post): atualizar o Status ou
+  sugerir a troca e avisar em uma linha.
+- Formato é sugestão: "não quero gravar vídeo" vira post de texto com foto de fundo
+  (skill `caamt-criativo`).
+
+## Fazer o post de uma linha
+Arte: `caamt-criativo`. Textos: `caamt-legenda`. Depois gravar o link da arte e Status "pronto".
