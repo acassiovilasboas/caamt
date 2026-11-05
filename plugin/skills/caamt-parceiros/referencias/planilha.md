@@ -1,13 +1,14 @@
-# Planilha "Parceiros CAAMT – <Subseção>"
+# Planilha "CAAMT – <Subseção>" (abas Parceiros, Cronograma, Pautas, Config e Histórico)
 
 ## Como criar (com o "pode" da pessoa)
 
 Crie pelo conector do Google Drive, mandando o conteúdo em CSV (`text/csv`, sem desligar a
-conversão). O Google transforma em planilha. Crie as três abas:
-- Se der para criar a planilha com uma aba só, crie com **Parceiros** e depois adicione **Config**
+conversão). O Google transforma em planilha. Crie as cinco abas (Parceiros, Cronograma, Pautas, Config,
+Histórico) numa planilha só:
+- Se der para criar a planilha com uma aba só, crie com **Parceiros** e depois adicione **Cronograma**, **Pautas**, **Config**
   e **Histórico** pelo conector do Sheets (adicionar aba + gravar cabeçalho).
-- Se não der para adicionar abas, não crie três planilhas separadas. Peça para a pessoa
-  clicar no "+" no rodapé da planilha e criar as abas Config e Histórico. Depois grave os
+- Se não der para adicionar abas, não crie planilhas separadas. Peça para a pessoa
+  clicar no "+" no rodapé da planilha e criar as abas que faltam. Depois grave os
   cabeçalhos.
 
 Depois de criar, leia de volta o cabeçalho para conferir. Guarde o link na aba Config.
@@ -46,9 +47,8 @@ Instagram da subseção,,
 Instagram da CAAMT,,
 Link desta planilha,,
 Pasta das artes no Drive,,
-Preferências,,
 ```
-Preferência nova vira uma linha "Preferências" com o texto e a data. A mais recente vale.
+Preferência ou regra do usuário não fica aqui: vai para `memoria/regras.md` (skill `caamt-memoria`).
 
 ## Aba Histórico (só acrescentar, nunca editar)
 
@@ -57,6 +57,9 @@ Data,Parceiro,O que mudou,De,Para
 ```
 
 ## Regras de gravação
+- Sem o conector do Google Sheets não dá para gravar só uma célula: **nunca regravar a planilha
+  inteira** (apagaria o que a pessoa editou). Pedir para ligar o conector (Personalizar ›
+  Conectores › Google Sheets) ou usar o modo local.
 - Leia antes de gravar. Grave só as células que mudaram (intervalo exato, ex.: `Parceiros!J7`).
 - Linha nova: acrescentar no fim, nunca sobrescrever.
 - Nada de número de CPF, RG ou outro documento em nenhuma aba.

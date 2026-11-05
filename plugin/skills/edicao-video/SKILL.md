@@ -1,6 +1,6 @@
 ---
 name: edicao-video
-description: Edição de vídeo curto (Reels, Stories, anúncio, vídeo de parceiro) controlada pelo Claude com FFmpeg, Whisper e Python, no computador do usuário ou na GPU grátis do Google Colab. Cortes, zoom, B-roll, limpeza de áudio, legenda karaokê, selos, CTA, capa, organização dos vídeos no Google Drive e documento de marca de cada projeto. Usar sempre que o pedido envolver editar, montar, legendar, cortar, transcrever ou fazer capa de vídeo, organizar vídeos, ou criar/atualizar a marca de um projeto.
+description: "Edição de vídeo curto (Reels, Stories, anúncio, vídeo de parceiro) controlada pelo Claude com FFmpeg, Whisper e Python, no computador do usuário ou na GPU grátis do Google Colab. Cortes, zoom, B-roll, limpeza de áudio, legenda karaokê, selos, CTA, capa, organização dos vídeos no Google Drive e documento de marca de cada projeto. Usar sempre que o pedido envolver editar, montar, legendar, cortar, transcrever ou fazer capa de vídeo, organizar vídeos, ou criar/atualizar a marca de um projeto."
 ---
 
 # Edição de vídeo
@@ -45,7 +45,7 @@ as próximas estimativas.
 ## Passo 0: documento de marca do projeto
 
 Todo valor de marca (cor, fonte, logo, CTA, público, tom) sai de
-`marca/MARCA.md` + `marca/marca.json` do projeto, nunca da memória nem do código.
+`marca/MARCA.md` + `marca/marca.json` do projeto (kit CAAMT: a `marca/` única da raiz `CAAMT-<Subseção>/`), nunca da memória nem do código.
 Não existe: criar seguindo `referencias/documento-de-marca.md`. Existe: ler e
 atualizar só o item que o usuário mudou.
 
@@ -132,13 +132,13 @@ direto, sem subagentes. Prompt pronto para vídeo novo: `referencias/prompt-sess
 ## Entrega (o usuário escolhe; perguntar na primeira entrega e gravar no perfil; kit CAAMT: `caamt-arquivos`)
 
 Duas opções. Nenhuma limita a outra: dá para mudar a qualquer hora.
-- **Computador (padrão).** Tudo fica em `Edicao-Video/` local. Funciona sem conta Google.
+- **Computador.** Tudo fica em `Edicao-Video/` local. Funciona sem conta Google. (Kit CAAMT: perguntar uma vez, pela skill `caamt-arquivos`.)
 - **Google Drive pelo conector, sem instalar o app do Drive:**
-  1. Pelo conector do Google Drive, criar ou achar `Meu Drive/Edicao-Video/<Projeto>/<vídeo>/`.
+  1. A pasta do vídeo no Drive é `CAAMT-<Subseção>/Edicao-Video/<AAAA-MM-DD>_<nome>/`, criada **pelo script** (`drive_upload.py pasta`), nunca pelo conector.
      Gravar o link no `LEIA-ME.md`.
   2. **Arquivo grande (vídeo) não passa pelo conector** (testado em 04/11/2026: 34 MB não
      subiu). O Claude sobe pelo script do kit, sem instalar o app do Drive:
-     `python <caamt-arquivos>/scripts/drive_upload.py enviar <vídeo> --pasta "CAAMT-<Subseção>/Edicao-Video/<vídeo>/final"`.
+     `python <caamt-arquivos>/scripts/drive_upload.py enviar <vídeo> --pasta "CAAMT-<Subseção>/Edicao-Video/<AAAA-MM-DD>_<nome>/final"`.
      Ainda não configurado: `caamt-arquivos/referencias/permissoes-google.md`; até lá, dar o
      caminho do arquivo para o usuário arrastar no Drive.
   3. Depois que o arquivo estiver no Drive, conferir pelo conector (listar a pasta) e anotar
@@ -160,7 +160,7 @@ Kit CAAMT: as camadas abaixo ficam em `memoria/` da pasta de trabalho (`caamt-me
 | Regra de uma marca/projeto (cor, CTA, logo, tom) | `marca/MARCA.md` do projeto |
 | Tarefa repetida que ganhou um jeito próprio (ex.: "vídeo de parceiro da CAAMT") | `~/.edicao-video/receitas/<nome>.md`: passos, valores, exemplo aprovado |
 
-**Artes da marca crescem com o uso.** Na primeira conversa, pedir as que o usuário tiver
+**Artes da marca crescem com o uso.** Pedir só quando a tarefa precisar (nunca em lista na primeira conversa) as que o usuário tiver
 (logos, rodapé, molduras, capas, vinheta, modelo de post). Depois:
 - arquivo de arte que chegar em qualquer conversa: salvar em `marca/logos/` do projeto,
   registrar no `MARCA.md` (o que é, quando usar, data) e confirmar em uma linha;
@@ -177,7 +177,7 @@ Regras:
 - O perfil manda no tom: iniciante recebe passo a passo curto e sem termo técnico;
   avançado recebe só a decisão.
 - Atualização do kit: quando o usuário disser "atualizar a skill", rodar
-  `/plugin update edicao-video` (ou repetir a instalação do README). Os arquivos de
+  `/plugin update kit-caamt` (ou repetir a instalação do README). Os arquivos de
   `~/.edicao-video/` continuam.
 
 ## Economia de tokens (obrigatório)

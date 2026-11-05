@@ -1,6 +1,6 @@
 ---
 name: caamt-arquivos
-description: Onde guardar e como organizar os arquivos do kit CAAMT (pasta do computador ou Google Drive), a planilha de trabalho e o envio de arquivos ao Drive pelo próprio Claude. Use ao salvar, subir, organizar ou achar arquivo, ao criar a planilha, ou quando o usuário falar em Drive, pasta, upload ou "mandar para a nuvem".
+description: "Onde guardar e como organizar os arquivos do kit CAAMT (pasta do computador ou Google Drive), a planilha de trabalho e o envio de arquivos ao Drive pelo próprio Claude. Use ao salvar, subir, organizar ou achar arquivo, ao criar a planilha, ou quando o usuário falar em Drive, pasta, upload ou \"mandar para a nuvem\"."
 ---
 
 # Arquivos e Google Drive
@@ -22,7 +22,7 @@ CAAMT-<Subseção>/
 Local: dentro da pasta de trabalho. Drive: `Meu Drive/CAAMT-<Subseção>/`.
 
 ## Planilha "CAAMT – <Subseção>" (abas Parceiros, Cronograma, Pautas, Config, Histórico)
-- Drive: Google Planilhas pelo conector (como criar: `caamt-parceiros/referencias/planilha.md`).
+- Drive: Google Planilhas pelos conectores do Google Drive e do Google Sheets (como criar: `caamt-parceiros/referencias/planilha.md`).
 - Local: um CSV por aba em `planilha/` (UTF-8 com BOM, abre no Excel).
 - Sempre ler antes de gravar e gravar **só as células que mudaram**. A pessoa pode editar à
   mão: o que ela escreveu vale.
@@ -34,10 +34,12 @@ Local: dentro da pasta de trabalho. Drive: `Meu Drive/CAAMT-<Subseção>/`.
    direto com o Google:
    `python <skill>/scripts/drive_upload.py enviar <arquivo> --pasta "CAAMT-<Subseção>/<subpasta>"`
    Ele cria as pastas que faltam, não sobe duas vezes o mesmo arquivo e imprime o link.
-3. `drive_upload.py status` diz se já está configurado. Não está: mostrar
+3. `login` espera a pessoa no navegador por até 5 min: rodar em segundo plano ou com tempo
+   limite de 10 min. `drive_upload.py status` diz se já está configurado. Não está: mostrar
    `referencias/permissoes-google.md` (10 minutos, uma vez) e, até lá, guardar local e anotar
    em `memoria/pendencias.md` o que falta subir.
-4. Importante: com a permissão `drive.file`, o script só enxerga as pastas que **ele** criou.
+4. **Pastas no Drive: só o script cria** (`drive_upload.py pasta "<caminho>"`); o conector nunca cria
+   pasta, só arquivo de texto dentro de pasta já criada (pelo id). Com a permissão `drive.file`, o script só enxerga as pastas que **ele** criou.
    No modo Drive, a pasta `CAAMT-<Subseção>` é criada pelo script (`drive_upload.py pasta
    "CAAMT-<Subseção>"`), e o id vai para o perfil. O conector acha tudo pelo id.
 5. Documento que chega no WhatsApp: no celular, Compartilhar › Drive › pasta do parceiro.

@@ -182,9 +182,19 @@ def enviar(arq, caminho):
     tam = os.path.getsize(arq)
     tipo = mimetypes.guess_type(arq)[0] or "application/octet-stream"
     q = "name = '%s' and '%s' in parents and trashed = false" % (aspas(nome), pai)
-    r, _ = chamar("GET", API + "?" + urllib.parse.urlencode({"q": q, "fields": "files(id,size,webViewLink)"}))
+    r, _ = chamar("GET", API + "?" + urllib.parse.urlencode(
+        {"q": q, "fields": "files(id,size,md5Checksum,webViewLink)"}))
+    md5 = None
     for f in r.get("files", []):
-        if int(f.get("size", -1)) == tam:
+        if int(f.get("size", -1)) != tam:
+            continue
+        if md5 is None:
+            h = hashlib.md5()
+            with open(arq, "rb") as fh:
+                for b in iter(lambda: fh.read(1 << 20), b""):
+                    h.update(b)
+            md5 = h.hexdigest()
+        if f.get("md5Checksum") == md5:
             print("JA_EXISTE\t%s\t%s\t%s" % (f["id"], nome, f.get("webViewLink", "")))
             return
     meta = json.dumps({"name": nome, "parents": [pai]}).encode()
@@ -192,12 +202,15 @@ def enviar(arq, caminho):
                     {"Content-Type": "application/json; charset=UTF-8",
                      "X-Upload-Content-Type": tipo, "X-Upload-Content-Length": str(tam)})
     sessao = cab["Location"]
-    feito = 0
+    feito, falhas, consultar = 0, 0, False
     with open(arq, "rb") as f:
         while True:
-            pedaco = f.read(BLOCO)
-            fim = feito + len(pedaco) - 1
-            rng = "bytes %d-%d/%d" % (feito, fim, tam) if pedaco else "bytes */%d" % tam
+            if consultar:  # depois de queda: pergunta ao Google até onde chegou
+                pedaco, rng = b"", "bytes */%d" % tam
+            else:
+                f.seek(feito)
+                pedaco = f.read(BLOCO)
+                rng = "bytes %d-%d/%d" % (feito, feito + len(pedaco) - 1, tam) if pedaco else "bytes */%d" % tam
             req = urllib.request.Request(sessao, pedaco, method="PUT")
             req.add_header("Content-Range", rng)
             try:
@@ -206,19 +219,33 @@ def enviar(arq, caminho):
                     print("ENVIADO\t%s\t%s\t%s" % (d["id"], d["name"], d.get("webViewLink", "")))
                     return
             except urllib.error.HTTPError as e:
-                if e.code != 308:
+                if e.code == 308:
+                    faixa = e.headers.get("Range")
+                    feito = int(faixa.split("-")[1]) + 1 if faixa else 0
+                    consultar, falhas = False, 0
+                    print("  %d%%" % (100 * feito // max(tam, 1)), flush=True)
+                    continue
+                if e.code in (404, 410):
+                    sair("A sessão de envio expirou no Google. Rode o mesmo comando de novo.")
+                if e.code < 500:
                     sair("Falha no envio (%s): %s" % (e.code, e.read().decode()[:300]))
-                faixa = e.headers.get("Range")
-                feito = int(faixa.split("-")[1]) + 1 if faixa else 0
-                f.seek(feito)
-                print("  %d%%" % (100 * feito // max(tam, 1)), flush=True)
+                erro = "HTTP %s" % e.code
+            except (urllib.error.URLError, OSError) as e:
+                erro = str(e)
+            falhas += 1
+            if falhas > 8:
+                sair("A internet caiu várias vezes (%s). Rode o mesmo comando de novo mais tarde." % erro)
+            espera = min(2 ** falhas, 60)
+            print("  conexão falhou (%s); tentando de novo em %d s" % (erro, espera), flush=True)
+            time.sleep(espera)
+            consultar = True
 
 
 def listar(caminho):
     pai = garantir_pasta(caminho)
     q = "'%s' in parents and trashed = false" % pai
     r, _ = chamar("GET", API + "?" + urllib.parse.urlencode(
-        {"q": q, "fields": "files(id,name,size,webViewLink)", "pageSize": 200}))
+        {"q": q, "fields": "files(id,name,size,webViewLink)", "pageSize": 1000}))
     for f in r.get("files", []):
         print("%s\t%s\t%s\t%s" % (f["id"], f["name"], f.get("size", "-"), f.get("webViewLink", "")))
 

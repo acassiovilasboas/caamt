@@ -1,6 +1,6 @@
 ---
 name: caamt-memoria
-description: Memória do kit CAAMT (perfil, regras do usuário, aprendizados). Use no começo de toda tarefa do kit e sempre que o usuário corrigir, aprovar, reclamar, der uma regra ("a partir de agora", "não faça mais", "prefiro") ou contar algo da rotina dele.
+description: "Memória do kit CAAMT (perfil, regras do usuário, aprendizados). Use no começo de toda tarefa do kit e sempre que o usuário corrigir, aprovar, reclamar, der uma regra (\"a partir de agora\", \"não faça mais\", \"prefiro\") ou contar algo da rotina dele."
 ---
 
 # Memória do kit CAAMT

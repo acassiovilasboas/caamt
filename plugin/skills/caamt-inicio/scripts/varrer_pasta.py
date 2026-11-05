@@ -51,7 +51,10 @@ def main(a):
             else:
                 continue
             for chave, nome in DOC_PARCEIRO.items():
-                if chave in nn.replace("-", " ").replace("_", " ").split() or (len(chave) > 3 and chave in nn):
+                base = os.path.splitext(nn)[0]
+                for sep in "-_.()":
+                    base = base.replace(sep, " ")
+                if chave in base.split() or (len(chave) > 3 and chave in base):
                     docs[os.path.dirname(rel) or "."].append("%s (%s)" % (n, nome))
                     break
     resumo = ["Pasta: " + raiz,

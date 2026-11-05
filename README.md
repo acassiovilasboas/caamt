@@ -59,9 +59,15 @@ Ele não aplica questionário: pede cada informação quando a tarefa precisa.
 ## Requisitos
 
 - Claude Desktop ou Claude Code com plano **Pro ou superior**. O kit roda na aba **Code**.
-- Opcional: conector do **Google Drive** (Personalizar › Conectores) e a extensão do Claude no Chrome.
+- Opcional: conectores do **Google Drive** e do **Google Sheets** (Personalizar › Conectores) e a
+  extensão do Claude no Chrome. Sem o do Sheets, a planilha fica no computador (CSV).
+- Use sempre a mesma pasta, no computador: a memória do kit (`memoria/`) fica nela. No celular e
+  na aba Chat o kit não roda.
 - O vídeo é editado com FFmpeg, Whisper e Python. O próprio kit verifica e orienta a instalação.
-  Se o computador for fraco, ele ensina a usar o Google Colab gratuito.
+  Se o computador for fraco, ele ensina a usar o Google Colab gratuito. O Colab é a única parte
+  que exige o Google Drive para computador instalado.
+- Subir vídeo e imagem para o Drive sem o app do Drive exige uma configuração única na sua conta
+  Google (~10 min): `plugin/skills/caamt-arquivos/referencias/permissoes-google.md`.
 
 ## O que o kit faz
 
@@ -71,3 +77,7 @@ Drive ou no computador.
 
 Ainda não testado com conta real: login do Google para upload de vídeo, publicação no Instagram
 pela API da Meta e edição do Linktree.
+
+## Licença
+
+PolyForm Noncommercial 1.0.0: uso gratuito, proibido vender ou usar comercialmente. Ver `LICENSE`.

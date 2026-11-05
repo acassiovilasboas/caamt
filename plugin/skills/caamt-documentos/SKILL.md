@@ -1,6 +1,6 @@
 ---
 name: caamt-documentos
-description: Confere os documentos que um parceiro mandou para o convênio com a CAAMT (na pasta do parceiro, no Drive ou no computador, ou numa foto na conversa) e devolve o que falta ou está errado com a mensagem pronta. Use quando a pessoa perguntar se os documentos estão ok, mandar documento para conferir, ou antes de enviar à CAAMT.
+description: "Confere os documentos que um parceiro mandou para o convênio com a CAAMT (na pasta do parceiro, no Drive ou no computador, ou numa foto na conversa) e devolve o que falta ou está errado com a mensagem pronta. Use quando a pessoa perguntar se os documentos estão ok, mandar documento para conferir, ou antes de enviar à CAAMT."
 ---
 
 # Conferir documentos do parceiro

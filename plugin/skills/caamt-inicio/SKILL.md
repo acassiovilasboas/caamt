@@ -1,6 +1,6 @@
 ---
 name: caamt-inicio
-description: Primeira conversa do kit CAAMT. Use quando a pessoa se apresentar ("Sou Fulana, Delegada da CAAMT em X", "boa tarde, sou delegado"), disser "vamos começar", "start", "configurar o kit", ou quando não existir a pasta memoria/.
+description: "Primeira conversa do kit CAAMT. Use quando a pessoa se apresentar (\"Sou Fulana, Delegada da CAAMT em X\", \"boa tarde, sou delegado\"), disser \"vamos começar\", \"start\", \"configurar o kit\", ou quando não existir a pasta memoria/."
 ---
 
 # Início
@@ -15,11 +15,14 @@ questionário**. O resto se aprende no uso (skill `caamt-memoria`).
    CAAMT). Não achou a subseção? Perguntar só isso.
 3. **Olhar a pasta** (sem abrir conteúdo):
    `python <skill>/scripts/varrer_pasta.py . --saida memoria/inventario.md`
-   Ler só o resumo impresso.
-4. **Criar `memoria/`** (modelos em `caamt-memoria`) com o que já se sabe. Artes achadas
+   Ler só o resumo impresso. Sem Python no computador: listar com a ferramenta Glob, sem instalar
+   nada agora.
+4. **Criar `memoria/`** (modelos em `caamt-memoria`) com o que já se sabe, e um `CLAUDE.md` na
+   pasta com a linha: "Antes de qualquer tarefa, ler `memoria/regras.md` e `memoria/perfil.md`
+   (kit CAAMT). Regra do usuário vale mais que o kit." Artes achadas
    (logo, moldura, rodapé) entram como "a confirmar" no perfil; não usar sem confirmar.
-5. **Começar a linha editorial** (skill `caamt-linha-editorial`): rascunho a partir dos
-   perfis de Instagram conhecidos. É o primeiro trabalho, sem esperar pedido.
+5. **Começar a linha editorial** (skill `caamt-linha-editorial`, "Primeiro rascunho"): rápido,
+   sem agente. É o primeiro trabalho, sem esperar pedido.
 6. **Responder em até 8 linhas**: o que entendi (nome, subseção, perfis); o que achei na
    pasta; o rascunho da linha editorial; e "o que quer fazer primeiro: vídeo, post,
    parceiro ou cronograma?".

@@ -1,6 +1,6 @@
 ---
 name: caamt-linha-editorial
-description: Linha editorial da subseção (os temas fixos do Instagram). Use na primeira conversa do kit, quando a pessoa falar em linha editorial, temas, "do que postar", padronizar a comunicação, ou quando o cronograma precisar de um tema.
+description: "Linha editorial da subseção (os temas fixos do Instagram). Use na primeira conversa do kit, quando a pessoa falar em linha editorial, temas, \"do que postar\", padronizar a comunicação, ou quando o cronograma precisar de um tema."
 ---
 
 # Linha editorial
@@ -10,12 +10,13 @@ jurisprudência, segurança na advocacia, benefícios da CAAMT, eventos). Fica e
 `linha-editorial.md` na pasta CAAMT-<Subseção> (local ou Drive, ver `caamt-arquivos`).
 
 ## Primeiro rascunho (sem perguntar nada)
-1. Partir dos perfis conhecidos: o da subseção (perfil.md ou `caamt-memoria/dados/subsecoes.md`),
-   `@caamt1`, `@oabmatogrosso` e os de outras subseções da tabela.
-2. Mandar o agente `perfis-instagram` ler os posts públicos recentes desses perfis e devolver
-   os temas com frequência e 1 exemplo com link cada. Instagram pediu login ou bloqueou? Usar o
-   que der (busca na web, o que o usuário mostrar) e marcar "não lido".
-3. Exemplo observado em 05/11/2026 no @oab_bg (grade do perfil): chamada para as comissões
+1. Na primeira conversa, rápido e sem agente: tentar ler o perfil da própria subseção
+   (perfil.md ou `caamt-memoria/dados/subsecoes.md`) e o `@caamt1`. Instagram pediu login ou
+   bloqueou? Seguir com os temas abaixo, marcados "sugestão".
+2. Análise ampla (outras subseções, `@oabmatogrosso`): agente `perfis-instagram`, quando a
+   pessoa pedir ou ao montar o cronograma.
+3. Exemplo observado em 05/11/2026 no @oab_bg (grade do perfil). Só vale como exemplo real para a
+   Subseção de Barra do Garças; nas outras, os mesmos temas entram como "sugestão": chamada para as comissões
    temáticas, alerta do golpe do falso advogado, Reels com vídeo, convite para o 4º Colégio de
    Presidentes e Delegados, "Convênio Disponível" de parceiro, post rosa da Comissão da Mulher
    Advogada (nome do quadro a confirmar). Serve só se o perfil não puder ser lido.

@@ -37,7 +37,7 @@ na janela do Google. Sem o MCP, o usuário abre o notebook e clica "Executar tud
 
 ## Preparar uma vez
 
-1. Google Drive para computador instalado e logado (ver `instalacao.md`).
+1. Google Drive para computador instalado e logado (ver `instalacao.md`). **O Colab é a única parte do kit que exige o app do Drive:** dizer isso antes de oferecer o Colab.
 2. `python <skill>/scripts/colab_job.py kit` → copia os scripts e o notebook para
    `Edicao-Video/_kit/`. Repetir depois de atualizar o kit.
 3. Opcional (menos cliques): MCP do Colab, precisa do `uv`:

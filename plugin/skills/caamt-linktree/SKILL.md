@@ -1,6 +1,6 @@
 ---
 name: caamt-linktree
-description: Mantém a página de links dos parceiros da subseção (Linktree ou parecida) igual à planilha de parceiros. Use quando a pessoa falar em Linktree, página de links, link da bio, botão dos parceiros, ou pedir para atualizar os parceiros ativos na página.
+description: "Mantém a página de links dos parceiros da subseção (Linktree ou parecida) igual à planilha de parceiros. Use quando a pessoa falar em Linktree, página de links, link da bio, botão dos parceiros, ou pedir para atualizar os parceiros ativos na página."
 ---
 
 # Página de links dos parceiros

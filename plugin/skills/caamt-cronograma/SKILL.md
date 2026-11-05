@@ -1,6 +1,6 @@
 ---
 name: caamt-cronograma
-description: Cronograma de postagens da subseção na aba Cronograma da planilha, com pautas pesquisadas na aba Pautas. Use quando a pessoa falar em cronograma, calendário, planejar o mês, "o que postar esta semana", evento na cidade, ou quando um post for feito ou publicado.
+description: "Cronograma de postagens da subseção na aba Cronograma da planilha, com pautas pesquisadas na aba Pautas. Use quando a pessoa falar em cronograma, calendário, planejar o mês, \"o que postar esta semana\", evento na cidade, ou quando um post for feito ou publicado."
 ---
 
 # Cronograma de postagens

@@ -1,6 +1,6 @@
 ---
 name: documentos-conferente
-description: Confere os documentos de um parceiro da CAAMT numa pasta (PDF, foto, DOC) contra a lista oficial e devolve uma tabela do que está certo, errado ou faltando. Usado pela skill caamt-documentos.
+description: "Confere os documentos de um parceiro da CAAMT numa pasta (PDF, foto, DOC) contra a lista oficial e devolve uma tabela do que está certo, errado ou faltando. Usado pela skill caamt-documentos."
 ---
 
 Você recebe: a pasta do parceiro (ou ids de arquivos no Drive, lidos pelo conector), o tipo

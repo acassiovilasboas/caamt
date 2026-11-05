@@ -125,7 +125,8 @@ def main(arq_cfg):
     centro(d, W / 2, 1022, c.get("titulo_desconto", "DESCONTO"), f(F_B, 30), branco)
     desc = c.get("descontos", [])
     n = max(len(desc), 1)
-    largp, gap, alt, py = (440 if n == 1 else 410), 36, 92, 1080
+    gap, alt, py = 36, 92, 1080
+    largp = min(440 if n == 1 else 410, (W - 60 - (n - 1) * gap) / n)
     total = n * largp + (n - 1) * gap
     for k, (grande, peq) in enumerate(desc):
         x = (W - total) / 2 + k * (largp + gap)
@@ -143,6 +144,11 @@ def main(arq_cfg):
     else:
         print("AVISO: sem rodape_logos_brancos.png no modelo; post saiu sem rodapé.")
     saida = cam(c["saida"])
+    raiz, ext = os.path.splitext(saida)
+    k = 2
+    while os.path.exists(saida):  # nunca sobrescreve uma arte já feita
+        saida = "%s_%d%s" % (raiz, k, ext)
+        k += 1
     img.convert("RGB").save(saida, quality=93)
     print(saida)
 

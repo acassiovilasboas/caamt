@@ -1,6 +1,6 @@
 ---
 name: caamt-legenda
-description: Textos de um post da subseção da CAAMT: legenda do Instagram, hashtags, primeiro comentário, versão para WhatsApp e para Stories. Use quando a pessoa pedir legenda, texto, descrição, hashtag, mensagem de grupo ou divulgação de convênio.
+description: "Textos de um post da subseção da CAAMT: legenda do Instagram, hashtags, primeiro comentário, versão para WhatsApp e para Stories. Use quando a pessoa pedir legenda do post, texto, descrição, hashtag, mensagem de grupo ou divulgação de convênio. Legenda dentro do vídeo (karaokê, legendar) é da skill edicao-video."
 ---
 
 # Legenda e textos

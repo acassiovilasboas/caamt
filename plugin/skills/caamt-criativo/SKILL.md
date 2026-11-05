@@ -1,11 +1,11 @@
 ---
 name: caamt-criativo
-description: Faz a arte pronta para postar (o "criativo") da subseção da CAAMT: post "Convênio Disponível" com a foto da placa, post de texto sobre foto de fundo, lembrete de parceiros ativos. Use quando a pessoa pedir arte, post, imagem, capa de post, ou quando uma linha do cronograma precisar de arte.
+description: "Faz a arte pronta para postar (o \"criativo\") da subseção da CAAMT: post \"Convênio Disponível\" com a foto da placa, post de texto sobre foto de fundo, lembrete de parceiros ativos. Use quando a pessoa pedir arte, post, imagem, capa de post (capa de vídeo é da skill edicao-video), ou quando uma linha do cronograma precisar de arte."
 ---
 
 # Arte do post
 
-1. **Modelo da subseção:** ler `marca/MARCA.md` (cores, fontes, rodapé). O que vem no kit em
+1. **Modelo da subseção:** ler `CAAMT-<Subseção>/marca/MARCA.md` (a mesma marca do vídeo) (cores, fontes, rodapé). O que vem no kit em
    `modelos/barra-do-garcas/` é da Subseção de Barra do Garças: outra subseção usa o dela.
    Faltou o rodapé ou o modelo? Pedir naquele momento e anotar em `memoria/pendencias.md`.
 2. **Logo do parceiro:** usar o que a pessoa mandou. Não tem? Procurar no site oficial ou no

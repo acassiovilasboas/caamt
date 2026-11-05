@@ -1,6 +1,6 @@
 ---
 name: caamt-parceiros
-description: Gestão dos parceiros (convênios) da subseção da CAAMT na aba Parceiros da planilha, da prospecção à divulgação. Use quando a pessoa falar de parceiro, convênio, conveniado, prospecção, cobrar ou retomar parceiro, quem está pendente, status dos convênios ou resumo da semana.
+description: "Gestão dos parceiros (convênios) da subseção da CAAMT na aba Parceiros da planilha, da prospecção à divulgação. Use quando a pessoa falar de parceiro, convênio, conveniado, prospecção, cobrar ou retomar parceiro, quem está pendente, status dos convênios ou resumo da semana."
 ---
 
 # Parceiros
@@ -15,7 +15,7 @@ skill `caamt-arquivos`.
 ## Pedidos comuns
 | Como ela fala | O que fazer |
 |---|---|
-| "Comecei com a empresa X, 10% para advogados" | Linha nova, Etapa "Prospecção"; criar `parceiros/<X>/`; mostrar a sequência de mensagens (1ª: documentos e onde conseguir; 2ª: convencimento) |
+| "Comecei com a empresa X, 10% para advogados" | Linha nova, Etapa "Prospecção"; criar `parceiros/<X>/` (no Drive, só pelo script: `caamt-arquivos`); mostrar a sequência de mensagens (1ª: documentos e onde conseguir; 2ª: convencimento) |
 | "Chegou o CNPJ da X" | Marcar recebido com a data, recalcular "Falta", mudar a Etapa se completou |
 | "Os documentos da X estão ok?" | Skill `caamt-documentos` |
 | "Quem está pendente?" | Tabela curta: parceiro, etapa, falta, dias parado (do mais atrasado) |

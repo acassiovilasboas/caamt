@@ -1,6 +1,6 @@
 ---
 name: caamt-instagram
-description: Instagram da subseção: ler perfis públicos para pautas e linha editorial e, quando configurado, publicar, responder e curtir comentários. Use quando a pessoa pedir para analisar perfis, ver o que outras subseções postam, publicar, agendar, responder ou curtir comentário.
+description: "Instagram da subseção: ler perfis públicos para pautas e linha editorial e, quando configurado, publicar, responder e curtir comentários. Use quando a pessoa pedir para analisar perfis, ver o que outras subseções postam, publicar, agendar, responder ou curtir comentário."
 ---
 
 # Instagram

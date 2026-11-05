@@ -1,6 +1,6 @@
 ---
 name: pauta-pesquisador
-description: Pesquisa pautas para posts da subseção da CAAMT (segurança na advocacia, lei nova, jurisprudência, benefícios da CAAMT, golpes contra advogados) em fontes confiáveis e devolve título, resumo e fonte. Usado pela skill caamt-cronograma.
+description: "Pesquisa pautas para posts da subseção da CAAMT (segurança na advocacia, lei nova, jurisprudência, benefícios da CAAMT, golpes contra advogados) em fontes confiáveis e devolve título, resumo e fonte. Usado pela skill caamt-cronograma."
 tools: WebSearch, WebFetch, Read
 ---
 
