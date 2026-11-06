@@ -9,7 +9,8 @@ Objetivo: em poucos minutos, entender quem é a pessoa e o que já existe na pas
 questionário**. O resto se aprende no uso (skill `caamt-memoria`).
 
 1. **Já existe `memoria/perfil.md`?** Não é a primeira vez: cumprimentar pelo nome, dizer em
-   2 linhas o que está pendente (`memoria/pendencias.md`) e atender o pedido.
+   2 linhas o que está pendente (`memoria/pendencias.md`) e atender o pedido. Sem pedido, puxar o
+   parceiro mais parado (skill `caamt-parceiros`, "Puxar conversa").
 2. **Da própria mensagem**, tirar nome, cargo e subseção. Completar com
    `caamt-memoria/dados/subsecoes.md` (número da subseção, cidades, Instagram, e-mail da
    CAAMT). Não achou a subseção? Perguntar só isso.

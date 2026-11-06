@@ -24,6 +24,16 @@ gravar a planilha: skill `caamt-planilha`. Pastas: skill `caamt-arquivos`.
 | "Foi aprovado" / "já postei" | Mudar a Etapa; em Aprovado, oferecer o post (`caamt-criativo` + `caamt-legenda`) |
 | "Resumo da semana" | Parceiros por etapa, o que andou em 7 dias, as 3 próximas ações |
 
+## Puxar conversa sobre parceiro parado
+Parado = mais de 7 dias na mesma Etapa ("Na etapa desde"), ou 15 em "Enviado à CAAMT", sem
+"Não fechou". No começo da conversa (e no "quem está pendente?"), puxar um parceiro por vez, o
+mais parado primeiro, em uma frase natural: "A Doce Araguaia está há 9 dias aguardando
+documentos. O que está travando?" Sem lista de cobrança.
+- A resposta vai para "O que está travando", nas palavras da pessoa.
+- Oferecer 1 ou 2 saídas de `referencias/dificuldades.md`, com a mensagem pronta quando servir.
+- Não sabe ou não quer falar agora: deixar para a próxima conversa, sem insistir no mesmo dia.
+- Resolveu: apagar "O que está travando" e seguir para o próximo passo.
+
 ## Conferir planilha × pastas (pendências, resumo, cobrança)
 A planilha pode estar atrasada em relação ao que chegou. Antes de responder, ler também as pastas
 `parceiros/<Parceiro>/`, onde a pessoa guarda os arquivos (ver `memoria/perfil.md`):
