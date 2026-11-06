@@ -25,6 +25,11 @@ Os dados de trabalho (linha editorial, cronograma, pautas, parceiros) ficam na p
 2. Regra do usuário contradiz a skill? **Vale a do usuário.** Avisar uma vez, na primeira vez.
 3. Faltou informação para a tarefa de agora? Perguntar só ela (no máximo 2 perguntas juntas).
    Dá para descobrir sozinho (planilha, pasta, site oficial, `dados/subsecoes.md`)? Descobrir.
+4. **Planilha e pastas juntas, sempre.** Pergunta sobre parceiros, publicações ou vídeos: ler a
+   planilha **e** as pastas (`parceiros/`, `publicacoes/`, `Edicao-Video/`), no Drive pelo conector
+   do Google Drive ou no computador, conforme `perfil.md`. O que está na pasta é o que existe de
+   fato; a planilha pode estar atrasada. Não bateu? Mostrar a diferença, propor a correção e
+   gravar só com o OK. Dizer no começo da resposta o que foi lido.
 
 ## Aprender (na mesma resposta, sem esperar pedido)
 - Correção, preferência ou regra nova: gravar com a data e responder "Anotei: <regra>".

@@ -16,6 +16,8 @@ conferir com evidência, e revisão por quem não editou.
 1. **Kit CAAMT:** a memória é a da pasta de trabalho (skill `caamt-memoria`):
    `memoria/perfil.md`, `memoria/regras.md` e a seção Vídeo de `memoria/aprendizados.md`.
    **Regra do usuário vale mais que este arquivo.** Sem `memoria/`, usar `~/.edicao-video/`.
+   Pergunta sobre vídeos (o que existe, o que falta, qual versão): ler a pasta `Edicao-Video/`
+   no Drive (conector) ou no computador, não só a planilha (regra 4 de `caamt-memoria`).
    Computador ainda não medido: `referencias/primeiro-uso.md` (só mede; não faz questionário).
 2. `python <skill>/scripts/ambiente.py` → ler só o resumo de 6 linhas que ele
    imprime (usa cache de 30 dias). Com `--refazer` quando uma ferramenta falhar,

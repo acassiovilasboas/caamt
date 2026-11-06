@@ -1,5 +1,22 @@
 # Changelog
 
+## 1.0.8 (06/11/2026)
+- Planilha e pastas juntas, sempre: em pergunta sobre parceiros, publicações ou vídeos, o kit lê a
+  planilha e as pastas (`parceiros/`, `publicacoes/`, `Edicao-Video/`), no Drive pelo conector ou no
+  computador. Diferença entre as duas vira uma seção "Planilha e pastas não batem", com a correção
+  proposta; nada é gravado sem o OK.
+- Agente `diretor-de-arte`: decide o visual de cada post (só cor e texto, foto limpa, foto como
+  fundo ou objeto em cena), escolhe a imagem sem repetir as dos posts recentes
+  (`memoria/imagens-usadas.md`) e respeita a regra da pessoa sobre usar ou não a biblioteca.
+- `caamt-criativo/scripts/fundo.py`: base do post a partir de uma foto, nos modos limpo, topo,
+  lado, fundo e duotone, na cor da marca.
+- Biblioteca de imagens (`caamt-criativo/biblioteca/`, 5 imagens geradas por IA, com `CATALOGO.md`):
+  advogado com estante, advogada na janela, advogado com a mão estendida, advogada com pasta,
+  celular em ligação.
+- Parceiros: colunas novas (O que está travando, Na etapa desde, Outros telefones, E-mail, Outras
+  redes, Site, Endereço, Cupom ou voucher, Como usar, Validade do benefício) e planilha lida pelo
+  cabeçalho, para a antiga continuar funcionando; nível da cobrança contado pelo Histórico.
+
 ## 1.0.7 (06/11/2026)
 - Sem painel: a skill `caamt-painel` saiu. A pessoa conversa com o Claude e, quando quiser,
   consulta a planilha, que precisa ser fácil de ler por gente.

@@ -10,6 +10,8 @@ advogados. A notícia é o benefício para a advocacia; o parceiro é o assunto,
 
 1. Ler a linha do parceiro na planilha (aba Parceiros) e `memoria/` (tom, emoji ou não,
    tamanho). Pedir só o que faltar: benefício e condições, @, telefone, endereço, colaboração.
+   O que a pessoa responder sobre o parceiro (Benefício, Cupom ou voucher, Como usar, Validade do
+   benefício, Instagram, WhatsApp/Telefone, Endereço) vai também para a linha dele (skill `caamt-planilha`).
 2. Condição com prazo vencido não entra.
 3. Entregar tudo de uma vez:
    - **Legenda** (padrão de convênio):

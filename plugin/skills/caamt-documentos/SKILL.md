@@ -13,10 +13,10 @@ description: "Confere os documentos que um parceiro mandou para o convênio com 
 3. Responder com a tabela que ele devolver (documento, situação, motivo). Gravar a mesma
    tabela em `parceiros/<Parceiro>/conferencia.md` e gerar `conferencia.html` (regra de página em
    `caamt-memoria`). Depois:
-   - o que falta ou está errado: mensagem pronta para o parceiro (`mensagens.md`, nível certo);
+   - o que falta ou está errado: mensagem pronta para o parceiro (`mensagens.md`, nível certo, contado como em `caamt-parceiros`);
    - tudo certo: "pronto para enviar à CAAMT" e o link do formulário.
 4. Na planilha (skill `caamt-planilha`): "ok <data>" no que passou, "problema: <motivo curto>" no
-   que não passou. Etapa "Documentos completos" quando todos estiverem "ok".
+   que não passou. Etapa "Documentos completos" quando todos estiverem "ok" (com a data de hoje em "Na etapa desde").
 
 Sigilo: não copiar número de CPF, RG, CNPJ ou endereço de pessoa para a planilha nem para a
 resposta. Dizer só "documento com foto: legível, válido".

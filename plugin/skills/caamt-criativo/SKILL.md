@@ -11,7 +11,11 @@ description: "Faz a arte pronta para postar (o \"criativo\") da subseção da CA
 2. **Logo do parceiro:** usar o que a pessoa mandou. Não tem? Procurar no site oficial ou no
    perfil oficial do parceiro, baixar o arquivo, dizer de onde veio e pedir OK. Nunca desenhar
    logo nem texto com gerador de imagem (erra letra e marca).
-3. **Tipos:**
+3. **Visual antes da arte:** para todo post que não seja Convênio Disponível, chamar o agente
+   `diretor-de-arte`. Ele decide se vai só cor e texto, foto limpa, foto como fundo ou objeto em
+   cena, escolhe a imagem da `biblioteca/` (ver `CATALOGO.md`) sem repetir os posts recentes e
+   gera a base com `scripts/fundo.py`. Compor o texto por cima, no lugar que ele indicar.
+4. **Tipos:**
    - **Convênio Disponível** (foto com a placa): preencher um `config.json` e rodar
      `python <skill>/scripts/post_convenio.py config.json` (campos no topo do script).
    - **Texto sobre foto de fundo** (ex.: foto da sede da OAB da cidade): foto da pasta
@@ -20,9 +24,9 @@ description: "Faz a arte pronta para postar (o \"criativo\") da subseção da CA
      "Divulgado" na planilha.
    Para os dois últimos, adaptar o `post_convenio.py` (mesmo tamanho 1080x1350 e rodapé),
    copiando-o para a pasta do post. Gerador de imagem por IA só com pedido: consome crédito.
-4. **Salvar** em `publicacoes/<AAAA-MM-DD>_<tema>/` com o `config.json` e a fonte das
+5. **Salvar** em `publicacoes/<AAAA-MM-DD>_<tema>/` com o `config.json` e a fonte das
    fotos. Mostrar a arte. Com o OK, subir (skill `caamt-arquivos`) e pôr o link na linha do
    Cronograma.
-5. Ajuste pedido (cor, tamanho, posição) que vale para sempre: `memoria/aprendizados.md`, seção Post.
+6. Ajuste pedido (cor, tamanho, posição) que vale para sempre: `memoria/aprendizados.md`, seção Post.
 
 Conferir antes de entregar: nome do parceiro, percentuais, telefone e @ batem com a planilha.

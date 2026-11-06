@@ -30,13 +30,17 @@ existe. Não criar "por garantia".
 ## Gravar (todas as skills passam por aqui)
 - Ler antes. Gravar **só as células que mudaram**; linha nova vai no fim. Nunca regravar a
   planilha ou a aba inteira: a pessoa pode ter editado à mão, e o que ela escreveu vale.
-- Drive: conector do Sheets, intervalo exato (ex.: `Cronograma!J7`). Computador:
+- Drive: conector do Sheets, intervalo exato (ex.: `Cronograma!J7`). A letra da coluna sai do
+  cabeçalho da própria planilha, lido na hora: planilha antiga tem outra ordem e as colunas novas
+  no fim. Nunca contar pela ordem de `planilha_local.py colunas`. Computador:
   `planilha_local.py mudar` / `nova` (já registram o Histórico).
 - No Drive, registrar cada mudança na aba Histórico (data, aba, item, o que mudou, de, para,
   quem: usuário ou Claude).
 - Coluna nova do kit (lista de `planilha_local.py colunas`) que a planilha ainda não tem: acrescentar
   no fim do cabeçalho, sem mexer no resto. Computador: `planilha_local.py criar` já faz isso. Drive:
   ao abrir, comparar o cabeçalho e gravar só as colunas que faltam.
+- Aba Parceiros: linha nova ou Etapa que mudou leva a data de hoje em "Na etapa desde"
+  (no computador, `nova` e `mudar` já fazem isso).
 - **Só dado real.** Nunca gravar linha de exemplo, parceiro fictício, telefone ou data inventados.
   Faltou um dado (telefone, data, link da pasta)? Perguntar à pessoa antes; sem resposta, a
   célula fica vazia.

@@ -24,12 +24,14 @@ ABAS = {
     "cronograma": ["Data", "Tema", "Pauta", "Formato", "Roteiro", "Legenda", "Hashtags",
                    "Primeiro comentário", "Arte (link)", "Status", "Fonte", "Evento na agenda", "Atualizado em"],
     "pautas": ["Data", "Tema", "Título", "Fonte", "Resumo", "Usada em"],
-    "parceiros": ["Parceiro", "Tipo (PJ/PF)", "Categoria", "Cidade", "Responsável",
-                  "WhatsApp/Telefone", "Benefício", "Etapa", "Carta proposta", "Alvará (PJ)",
-                  "CNPJ (PJ)", "Comprovante de endereço (PF)", "Documento com foto", "Logo JPG",
-                  "Tabela de valores (opcional)", "Falta", "Próxima mensagem", "Última cobrança",
-                  "Nível da cobrança", "Próxima ação", "Data da próxima ação", "Pasta (link)",
-                  "Evento na agenda", "Atualizado em", "Observações"],
+    "parceiros": ["Parceiro", "Etapa", "Próxima ação", "Data da próxima ação", "Falta",
+                  "O que está travando", "Na etapa desde", "Responsável", "WhatsApp/Telefone",
+                  "Outros telefones", "E-mail", "Instagram", "Outras redes", "Site", "Endereço",
+                  "Categoria", "Cidade", "Tipo (PJ/PF)", "Benefício", "Cupom ou voucher", "Como usar",
+                  "Validade do benefício", "Carta proposta", "Alvará (PJ)", "CNPJ (PJ)",
+                  "Comprovante de endereço (PF)", "Documento com foto", "Logo JPG",
+                  "Tabela de valores (opcional)", "Próxima mensagem", "Última cobrança", "Pasta (link)",
+                  "Observações", "Evento na agenda", "Atualizado em"],
     "config": ["Chave", "Valor", "Atualizado em"],
     "historico": ["Data", "Aba", "Item", "O que mudou", "De", "Para", "Quem"],
 }
@@ -94,6 +96,13 @@ def coluna(cab, nome):
     sair("Coluna '%s' não existe. Colunas: %s" % (nome, ", ".join(cab)))
 
 
+def achar(cab, nome):
+    for i, c in enumerate(cab):
+        if norm(c) == norm(nome):
+            return i
+    return None
+
+
 def hoje():
     return datetime.date.today().strftime("%d/%m/%Y")
 
@@ -128,6 +137,9 @@ def nova(pasta, aba, dados, quem):
     linha = [""] * len(cab)
     for k, v in dados.items():
         linha[coluna(cab, k)] = v
+    e, d = achar(cab, "Etapa"), achar(cab, "Na etapa desde")
+    if aba == "parceiros" and e is not None and d is not None and linha[e] and not linha[d]:
+        linha[d] = hoje()
     if "Atualizado em" in cab:
         linha[cab.index("Atualizado em")] = hoje()
     linhas.append(linha)
@@ -153,6 +165,11 @@ def mudar(pasta, aba, chave, dados, quem):
         if linha[i] != v:
             mud.append((cab[i], linha[i], v))
             linha[i] = v
+    e, d = achar(cab, "Etapa"), achar(cab, "Na etapa desde")
+    if (aba == "parceiros" and e is not None and d is not None and any(m[0] == cab[e] for m in mud)
+            and not any(norm(k) == norm(cab[d]) for k in dados) and linha[d] != hoje()):
+        mud.append((cab[d], linha[d], hoje()))
+        linha[d] = hoje()
     if not mud:
         print("Nada mudou.")
         return
