@@ -6,7 +6,6 @@
   python planilha_local.py ler <pasta> <aba> [--busca txt]
   python planilha_local.py nova <pasta> <aba> "Coluna=valor" ...      # acrescenta uma linha
   python planilha_local.py mudar <pasta> <aba> <chave> "Coluna=valor" ... [--quem usuário|Claude]
-  python planilha_local.py html <pasta>                     # gera planilha/ver.html para a pessoa ler
 
 <chave> = valor da 1ª coluna da linha (ex.: nome do parceiro, data do post), sem diferenciar
 maiúsculas nem acento. "mudar" grava só as células citadas, mantém o resto como está no arquivo
@@ -21,16 +20,16 @@ import unicodedata
 
 ABAS = {
     "linha-editorial": ["Tema", "Para quê", "Frequência", "Dia sugerido", "Formatos", "De onde vem a pauta",
-                        "Exemplo real", "Origem", "Atualizado em"],
+                        "Atualizado em"],
     "cronograma": ["Data", "Tema", "Pauta", "Formato", "Roteiro", "Legenda", "Hashtags",
-                   "Primeiro comentário", "Arte (link)", "Status", "Fonte", "Atualizado em"],
+                   "Primeiro comentário", "Arte (link)", "Status", "Fonte", "Evento na agenda", "Atualizado em"],
     "pautas": ["Data", "Tema", "Título", "Fonte", "Resumo", "Usada em"],
     "parceiros": ["Parceiro", "Tipo (PJ/PF)", "Categoria", "Cidade", "Responsável",
                   "WhatsApp/Telefone", "Benefício", "Etapa", "Carta proposta", "Alvará (PJ)",
                   "CNPJ (PJ)", "Comprovante de endereço (PF)", "Documento com foto", "Logo JPG",
                   "Tabela de valores (opcional)", "Falta", "Próxima mensagem", "Última cobrança",
-                  "Nível da cobrança", "Próxima ação", "Data da próxima ação", "Atualizado em",
-                  "Observações"],
+                  "Nível da cobrança", "Próxima ação", "Data da próxima ação", "Pasta (link)",
+                  "Evento na agenda", "Atualizado em", "Observações"],
     "config": ["Chave", "Valor", "Atualizado em"],
     "historico": ["Data", "Aba", "Item", "O que mudou", "De", "Para", "Quem"],
 }
@@ -108,12 +107,20 @@ def historico(pasta, aba, item, mudancas, quem):
 
 def criar(pasta):
     os.makedirs(os.path.join(pasta, "planilha"), exist_ok=True)
-    feitas = []
+    feitas, novas = [], []
     for aba, cab in ABAS.items():
         if not os.path.exists(arq(pasta, aba)):
             gravar(pasta, aba, cab, [])
             feitas.append(NOMES[aba])
-    print("Criadas: " + (", ".join(feitas) or "nenhuma (já existiam)"))
+            continue
+        atual, linhas = ler(pasta, aba)  # coluna nova do kit entra no fim, sem mexer no resto
+        falta = [c for c in cab if norm(c) not in {norm(x) for x in atual}]
+        if falta:
+            gravar(pasta, aba, atual + falta, [l + [""] * (len(atual) - len(l) + len(falta)) for l in linhas])
+            novas.append("%s (+%s)" % (NOMES[aba], ", ".join(falta)))
+    print("Criadas: " + (", ".join(feitas) or "nenhuma"))
+    if novas:
+        print("Colunas novas: " + "; ".join(novas))
 
 
 def nova(pasta, aba, dados, quem):
@@ -168,39 +175,6 @@ def mostrar(pasta, aba, busca):
     print("(%d linhas)" % len(linhas))
 
 
-def pagina(pasta):
-    partes = []
-    for aba in ABAS:
-        if not os.path.exists(arq(pasta, aba)):
-            continue
-        cab, linhas = ler(pasta, aba)
-        th = "".join("<th>%s</th>" % html.escape(c) for c in cab)
-        tr = "".join("<tr>%s</tr>" % "".join("<td>%s</td>" % html.escape(c) for c in l) for l in linhas)
-        partes.append('<section><h2>%s <small>(%d)</small></h2><div class="t"><table><thead><tr>%s'
-                      "</tr></thead><tbody>%s</tbody></table></div></section>"
-                      % (NOMES[aba], len(linhas), th, tr or '<tr><td colspan="99">vazia</td></tr>'))
-    css = ("body{margin:0;font:16px/1.5 system-ui,'Segoe UI',Arial,sans-serif;background:#F4F5F1;color:#17231E}"
-           "header{background:#0F2A23;color:#EEF0EA;padding:20px 16px}main{padding:16px}"
-           "h2{margin:28px 0 8px}small{color:#4B5A52;font-weight:400}.t{overflow-x:auto}"
-           "table{border-collapse:collapse;min-width:100%;background:#fff;font-size:14px}"
-           "th,td{border:1px solid #D9DED6;padding:6px 8px;text-align:left;vertical-align:top}"
-           "th{background:#EEF0EA;position:sticky;top:0}input{width:100%;padding:10px;font-size:16px;"
-           "border:1px solid #D9DED6;border-radius:8px}"
-           "@media (prefers-color-scheme:dark){body{background:#0E1A16;color:#E9ECE6}"
-           "table{background:#15241F}th{background:#192A24}th,td{border-color:#2A3B35}}")
-    js = ("const b=document.querySelector('input');b.addEventListener('input',()=>{const t=b.value.toLowerCase();"
-          "document.querySelectorAll('tbody tr').forEach(r=>{r.style.display=r.textContent.toLowerCase()"
-          ".includes(t)?'':'none'})})")
-    saida = os.path.join(pasta, "planilha", "ver.html")
-    with open(saida, "w", encoding="utf-8") as f:
-        f.write('<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" '
-                'content="width=device-width,initial-scale=1"><title>Planilha da subseção</title><style>%s'
-                '</style></head><body><header><b>Planilha da subseção</b> · gerada em %s · para mudar, peça '
-                'ao Claude ou edite o CSV no Excel</header><main><input type="search" placeholder="Buscar">%s'
-                "</main><script>%s</script></body></html>" % (css, hoje(), "".join(partes), js))
-    print(os.path.abspath(saida))
-
-
 def main(a):
     if not a:
         sys.exit(__doc__)
@@ -226,8 +200,6 @@ def main(a):
         nova(a[1], aba_de(a[2]), pares(a[3:]), quem)
     elif cmd == "mudar" and len(a) > 4:
         mudar(a[1], aba_de(a[2]), a[3], pares(a[4:]), quem)
-    elif cmd == "html" and len(a) > 1:
-        pagina(a[1])
     else:
         sys.exit(__doc__)
 

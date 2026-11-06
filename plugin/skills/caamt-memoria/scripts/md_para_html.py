@@ -136,8 +136,8 @@ def main(a):
     pagina = ('<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">'
               '<meta name="viewport" content="width=device-width, initial-scale=1">'
               "<title>%s</title><style>%s</style></head><body><header><div><h1>%s</h1>"
-              "<p>Gerado de %s</p></div></header><main>%s%s</main><script>%s</script></body></html>"
-              % (html.escape(titulo), CSS, html.escape(titulo), html.escape(os.path.basename(origem)),
+              "</div></header><main>%s%s</main><script>%s</script></body></html>"
+              % (html.escape(titulo), CSS, html.escape(titulo),
                  busca, corpo, JS if tem_tabela else ""))
     with open(saida, "w", encoding="utf-8") as f:
         f.write(pagina)

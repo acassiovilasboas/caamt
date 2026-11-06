@@ -5,6 +5,7 @@ description: "Única dona da planilha de trabalho da subseção (abas Linha edit
 
 # Planilha da subseção
 
+A planilha é a memória e o banco de dados do Claude. A pessoa vê no navegador (skill `caamt-painel`).
 Nome: **"CAAMT – <Subseção>"**. Colunas de cada aba: `python <skill>/scripts/planilha_local.py colunas`
 (vale para o Drive e para o computador). Significado das colunas: `referencias/abas.md`.
 
@@ -24,7 +25,7 @@ existe. Não criar "por garantia".
 3. **Computador**, ou Drive sem o conector do Sheets: `planilha_local.py criar <pasta CAAMT>`.
    No segundo caso, dizer em uma linha: "Liguei a planilha aqui no computador porque o conector do
    Google Sheets não está ativo; quando ligar, eu passo para o Drive."
-4. Entregar o link (Drive) ou a página `planilha/ver.html` (computador: `planilha_local.py html`).
+4. Mostrar o painel (skill `caamt-painel`).
 
 ## Gravar (todas as skills passam por aqui)
 - Ler antes. Gravar **só as células que mudaram**; linha nova vai no fim. Nunca regravar a
@@ -33,5 +34,13 @@ existe. Não criar "por garantia".
   `planilha_local.py mudar` / `nova` (já registram o Histórico).
 - No Drive, registrar cada mudança na aba Histórico (data, aba, item, o que mudou, de, para,
   quem: usuário ou Claude).
-- Computador: depois de gravar, gerar de novo `planilha/ver.html` e dar esse caminho.
+- Coluna nova do kit (lista de `planilha_local.py colunas`) que a planilha ainda não tem: acrescentar
+  no fim do cabeçalho, sem mexer no resto. Computador: `planilha_local.py criar` já faz isso. Drive:
+  ao abrir, comparar o cabeçalho e gravar só as colunas que faltam.
+- **Só dado real.** Nunca gravar linha de exemplo, parceiro fictício, telefone ou data inventados.
+  Faltou um dado (telefone, data, link da pasta)? Perguntar à pessoa antes; sem resposta, a
+  célula fica vazia.
+- Data com prazo (próxima ação, data do post): avisar a agenda (skill `caamt-agenda`).
+- Depois de gravar: atualizar o painel (skill `caamt-painel`).
 - Nada de CPF, RG ou número de documento em nenhuma aba.
+

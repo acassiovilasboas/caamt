@@ -157,7 +157,7 @@ Kit CAAMT: as camadas abaixo ficam em `memoria/` da pasta de trabalho (`caamt-me
 `~/.edicao-video/` só sem o kit.
 
 | Preferência ou jeito do usuário (nível de explicação, horário, aprova por áudio, não gosta de X) | `~/.edicao-video/perfil.md` |
-| Lição de edição que vale para qualquer vídeo dele ("legenda menor", "nunca música") | `~/.edicao-video/licoes.md` (tabela: lição, origem, data) |
+| Lição de edição que vale para qualquer vídeo dele ("legenda menor", "nunca música") | `~/.edicao-video/licoes.md` (tabela: lição, data) |
 | Regra de uma marca/projeto (cor, CTA, logo, tom) | `marca/MARCA.md` do projeto |
 | Tarefa repetida que ganhou um jeito próprio (ex.: "vídeo de parceiro da CAAMT") | `~/.edicao-video/receitas/<nome>.md`: passos, valores, exemplo aprovado |
 

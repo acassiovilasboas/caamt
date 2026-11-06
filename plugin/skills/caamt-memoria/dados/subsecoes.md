@@ -66,6 +66,24 @@ Consulta em 03/11/2026. São só dados publicados pela OAB-MT e pela CAAMT, mais
 | Suplentes | Caio César Manoel, Edison Oliveira de Souza Júnior, Paula Assumpção de Almeida Teibel, Renata Cintra Rascheja Francelino, Roberta de Arruda Chicaú |
 
 
+## Ritmo dos perfis (medido em 06/11/2026, posts dos últimos 60 dias)
+
+Método: `caamt-instagram/referencias/medir-ritmo.md`. Ritmo muda; medir de novo antes de usar.
+
+| Perfil | Posts por semana | Dias mais usados | Reels | Temas que mais aparecem |
+|---|---|---|---|---|
+| @caamt1 | cerca de 8 (60 posts entre 16/09 e 05/11) | seg a sex | cerca de metade | benefícios e convênios estaduais, eventos da CAAMT, saúde (campanhas do mês), datas |
+| @oabmatogrosso | cerca de 6 | seg a sex | cerca de metade | ações da presidência, eventos, saúde e rotina da advocacia, alerta de golpe |
+| @oabrondonopolis | cerca de 4 | qua e qui | cerca de 40% | eventos (patrocinadores, contagem regressiva), solenidade de entrega de carteira |
+| @oabsinop | cerca de 3,5 | ter, qua e qui | cerca de 35% | cursos e inscrições, solenidades, notas de pesar |
+| @oab_bg | cerca de 1,7 | qui | cerca de 25% | Quarta de Lei, convênio disponível, notas de orientação, eventos |
+| @oabprimavera | cerca de 1 | variado | mais da metade | comunicados (expediente), ações da diretoria, eventos |
+| @oab.novamutum | cerca de 1 | qui | mais da metade | capacitações, "Quintou da Advocacia", ações das comissões |
+| @oab_campoverde | menos de 1 (último post em 24/09) | qua e qui | todos | prazos do TJMT, leis em vídeo curto, eventos |
+
+Nenhum perfil de subseção posta todo dia. Os que postam quase todo dia útil são os estaduais
+(@caamt1 e @oabmatogrosso).
+
 ## Resumo e limites
 
 - São 29 subseções e a seccional. A lista está completa.

@@ -7,6 +7,7 @@ description: "Instagram da subseção: ler perfis públicos para pautas e linha 
 
 ## Ler perfis (para linha editorial e cronograma)
 Agente `perfis-instagram`. Perfis conhecidos: `caamt-memoria/dados/subsecoes.md`.
+Ritmo (posts por semana, dias): `referencias/medir-ritmo.md`; última medição na mesma tabela.
 
 ## Publicar, responder, curtir
 Exige ligar o Instagram por API da Meta, uma vez: conta profissional ligada a uma Página do

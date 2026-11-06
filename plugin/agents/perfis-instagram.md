@@ -11,8 +11,8 @@ Você recebe uma lista de perfis e o período (padrão: últimos 30 posts ou 60 
    datas comemorativas). Anotar eventos com data (para o cronograma).
 3. Devolver só isto, em até 30 linhas:
    - tabela `Tema | Perfis | Quantos posts | Formato mais usado | Exemplo (link)`;
-   - ritmo de cada perfil, pelas datas dos posts: posts por semana e dias mais usados (sem data
-     visível: "ritmo não medido");
+   - ritmo de cada perfil (método em `caamt-instagram/referencias/medir-ritmo.md`): posts por
+     semana e dias mais usados; sem Chrome: "ritmo não medido";
    - eventos futuros vistos: `Data | Evento | Perfil | Link`;
    - perfis não lidos.
 Não inventar post nem link. Contagem aproximada? Dizer "cerca de".

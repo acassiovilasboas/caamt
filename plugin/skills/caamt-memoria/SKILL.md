@@ -42,24 +42,14 @@ Gerar de novo. Na resposta, dar o caminho do `.html`, nunca o do `.md`. Arquivos
 (`memoria/`, `analise/`, `transcricao/`) ficam só em `.md`; se a pessoa pedir para ver a
 memória, gerar a página na hora.
 
+## Só conteúdo nos documentos da pessoa
+Planilha, painel e páginas mostram só o conteúdo. Nunca de onde veio cada item, quem sugeriu,
+data de consulta, "sugestão", "a confirmar" ou qualquer nota sobre o próprio documento.
+
 ## Nome e cargo (padrão; o usuário pode mudar)
 "Caixa" sozinho fica vago. Primeira menção: **Caixa de Assistência dos Advogados de Mato
 Grosso (CAAMT)**. Depois: CAAMT. Cargo: **Delegada / Delegado da CAAMT na Subseção de <cidade>**.
 Fonte: https://www.caamt.com.br/pagina/delegados-as
 
 ## Modelos
-
-`perfil.md`
-```
-# Perfil
-- Nome / tratamento:
-- Cargo: Delegada|Delegado da CAAMT na Subseção de <cidade> | cidades atendidas:
-- Perfis: pessoal @ | subseção @ | CAAMT @caamt1
-- Guardar arquivos em: (perguntar na primeira vez que precisar) local | drive
-- Drive: pasta raiz id=
-- planilha: (id do Drive | local | ainda não criada)
-- Computador: (do ambiente.py, quando editar vídeo)
-- Rotina: (preencher com o uso)
-```
-`regras.md`: tabela `Regra | Vale para | Dada em`.
-`aprendizados.md`: uma seção por área; em cada uma, tabela `O que | Origem | Data`.
+Dos arquivos de `memoria/`: `referencias/modelos.md`.

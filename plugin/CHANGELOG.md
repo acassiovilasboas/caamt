@@ -1,5 +1,24 @@
 # Changelog
 
+## 1.0.5 (06/11/2026)
+- Linha editorial sem a coluna de exemplo: nada sobre os perfis consultados em planilha, painel ou página.
+- Contato com o desenvolvedor só depois de cinco tentativas (ou pedido da pessoa).
+
+## 1.0.4 (06/11/2026)
+- Documentos da pessoa só com conteúdo: sai a coluna Origem da Linha editorial, as marcas
+  "sugestão" e o "Gerado de" das páginas. "Exemplo real" vira "Exemplo (link)".
+- Temas de partida só com o que foi visto nos perfis (inclui "Quarta de Lei", do @oab_bg).
+
+## 1.0.3 (06/11/2026)
+- `caamt-painel`: painel da subseção no navegador (Hoje, Postagens, Parceiros, Temas, Pautas), letras
+  grandes, botões de WhatsApp com a mensagem pronta, copiar e abrir pasta ou arte. Só dado real.
+- `caamt-agenda`: lembrete na agenda da pessoa (Google Agenda ou outra com conector), um evento por
+  prazo, atualizado quando a data muda.
+- `caamt-suporte`: contato com o desenvolvedor pelo WhatsApp, só em último caso.
+- Planilha: colunas Pasta (link) e Evento na agenda; coluna nova entra no fim sem mexer no resto;
+  nunca grava dado de exemplo.
+- Ritmo medido dos perfis do Instagram e método de medição (`caamt-instagram/referencias/medir-ritmo.md`).
+
 ## 1.0.2 (06/11/2026)
 - Nova skill `caamt-planilha`: única dona da planilha "CAAMT – <Subseção>". Ela nasce na conversa,
   quando for útil, com a pergunta Drive ou computador nesse momento. Abas: Linha editorial,

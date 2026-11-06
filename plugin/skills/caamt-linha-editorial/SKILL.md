@@ -16,22 +16,21 @@ Não inventar frequência: vem do que a pessoa disser ou do que foi medido nos p
 ## Primeira proposta (sem perguntar nada)
 1. Rápido e sem agente: tentar ler o perfil da própria subseção (`memoria/perfil.md` ou
    `caamt-memoria/dados/subsecoes.md`) e o `@caamt1`. Leu: os temas e o ritmo saem dos posts
-   (quantos por semana, em que dias), com o link de um exemplo. Não leu (login, bloqueio):
+   (quantos por semana, em que dias). Não leu (login, bloqueio):
    usar os temas de partida e dizer isso com naturalidade ("não consegui abrir o perfil agora;
    comecei por temas comuns").
-2. Temas de partida, cada um com a origem:
-   - convênio disponível (por demanda), alerta de golpe contra a advocacia (ex.: falso advogado),
-     chamada para as comissões temáticas, eventos da subseção: vistos no Instagram de uma
-     subseção da OAB-MT (@oab_bg);
-   - lei da semana, jurisprudência, segurança na advocacia, benefícios da CAAMT: temas usados
-     por subseções para organizar a comunicação.
-   Na planilha, a coluna Origem diz "sugestão do kit" até haver um exemplo real da subseção, e a
-   Frequência fica em branco até a pessoa dizer ou a medição mostrar.
+2. Temas de partida (vistos em perfis de subseções da OAB-MT): convênio disponível (por
+   demanda), alerta de golpe contra a advocacia (ex.: falso advogado), chamada para as comissões
+   temáticas, eventos da subseção, encontros temáticos (ex.: "Quarta de Lei", no @oab_bg),
+   benefícios da CAAMT. Frequência em branco até a pessoa dizer ou a medição mostrar.
 3. Mostrar 3 a 5 temas na conversa, em linguagem simples, e propor o passo seguinte natural
    ("Quer que eu monte as postagens das próximas duas semanas com esses temas?"). Se não souber
    quantas vezes por semana ela posta, perguntar só isso, nesse momento.
 4. Quando a pessoa topar (ou pedir o cronograma): `caamt-planilha` cria a planilha e grava a
    aba Linha editorial antes do Cronograma.
+
+O que foi lido nos perfis serve só para o Claude decidir. **Nunca vai para a planilha, o painel
+ou uma página**: nada de lista de perfis consultados, link de post de exemplo ou "visto em".
 
 ## Análise ampla
 Outras subseções e `@oabmatogrosso`: agente `perfis-instagram`, quando a pessoa pedir ou ao
