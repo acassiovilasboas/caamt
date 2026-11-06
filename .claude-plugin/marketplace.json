@@ -1,0 +1,12 @@
+{
+  "name": "kit-caamt",
+  "owner": { "name": "Acassio Vilas Boas e Celso Farias" },
+  "description": "Ferramentas para a rotina da Delegada e do Delegado da CAAMT (Caixa de Assistência dos Advogados de Mato Grosso): vídeo, conteúdo e parceiros.",
+  "plugins": [
+    {
+      "name": "kit-caamt",
+      "source": "./plugin",
+      "description": "Vídeo, post, linha editorial, cronograma, parceiros, documentos e Google Drive para a Delegada e o Delegado da CAAMT."
+    }
+  ]
+}

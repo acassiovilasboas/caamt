@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+dist/
+validar_kit.py
+.DS_Store
+Thumbs.db
