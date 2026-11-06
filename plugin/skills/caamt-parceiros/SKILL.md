@@ -15,7 +15,7 @@ gravar a planilha: skill `caamt-planilha`. Pastas: skill `caamt-arquivos`.
 ## Pedidos comuns
 | Como ela fala | O que fazer |
 |---|---|
-| "Comecei com a empresa X, 10% para advogados" | Linha nova, Etapa "Prospecção"; criar `parceiros/<X>/` (no Drive, só pelo script: `caamt-arquivos`); mostrar a sequência de mensagens (1ª: documentos e onde conseguir; 2ª: convencimento) |
+| "Comecei com a empresa X, 10% para advogados" | Linha nova, Etapa "Prospecção"; criar `parceiros/<X>/` (no Drive, pelo conector: `caamt-arquivos`); mostrar a sequência de mensagens (1ª: documentos e onde conseguir; 2ª: convencimento) |
 | "Chegou o CNPJ da X" | Marcar "recebido <data>" (falta conferir), recalcular "Falta"; oferecer a conferência |
 | "Os documentos da X estão ok?" | Skill `caamt-documentos` |
 | "Quem está pendente?" | Conferir planilha × pastas (abaixo); depois a tabela curta: parceiro, etapa, falta, dias parado (do mais atrasado) |
@@ -28,8 +28,8 @@ gravar a planilha: skill `caamt-planilha`. Pastas: skill `caamt-arquivos`.
 A planilha pode estar atrasada em relação ao que chegou. Antes de responder, ler também as pastas
 `parceiros/<Parceiro>/`, onde a pessoa guarda os arquivos (ver `memoria/perfil.md`):
 - **Drive:** pelo conector do Google Drive (buscar a pasta `parceiros` e listar os arquivos de
-  cada parceiro). Sem o conector: `caamt-arquivos/scripts/drive_upload.py listar --pasta
-  "CAAMT-<Subseção>/parceiros"`, que só enxerga o que o kit enviou; dizer isso em uma linha.
+  cada parceiro). Sem o conector: pedir para ligar (Personalizar › Conectores) e, até lá,
+  responder só pela planilha, dizendo isso em uma linha.
 - **Computador:** listar a pasta (Glob), sem abrir o conteúdo.
 
 Pelo nome do arquivo, ligar cada um ao documento da lista oficial. Na resposta, antes da tabela,

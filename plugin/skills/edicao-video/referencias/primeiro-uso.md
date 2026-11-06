@@ -30,7 +30,5 @@ pessoa. Download grande (modelo de ~466 MB): dizer o tamanho antes.
   Nomes sem acento e sem espaço nas pontas.
 
 ## 5. Colab (só se "Processar em: colab")
-O Colab lê arquivos do Google Drive. O bruto pode ir pelo `drive_upload.py` (skill
-`caamt-arquivos`) para `Edicao-Video/_colab/fila/`. O resultado que o Colab grava não é
-visível ao script (permissão `drive.file`): a pessoa baixa pelo Drive no navegador, ou instala
-o Google Drive para computador. Detalhes: `colab.md`.
+O Colab lê arquivos do Google Drive e precisa do Google Drive para computador instalado (é a única
+parte do kit que exige o app). Detalhes: `colab.md`.

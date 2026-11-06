@@ -66,8 +66,8 @@ Ele não aplica questionário: pede cada informação quando a tarefa precisa.
 - O vídeo é editado com FFmpeg, Whisper e Python. O próprio kit verifica e orienta a instalação.
   Se o computador for fraco, ele ensina a usar o Google Colab gratuito. O Colab é a única parte
   que exige o Google Drive para computador instalado.
-- Subir vídeo e imagem para o Drive sem o app do Drive exige uma configuração única na sua conta
-  Google (~10 min): `plugin/skills/caamt-arquivos/referencias/permissoes-google.md`.
+- Arquivos no Drive: texto e planilha vão pelo conector; arte e PDF até 10 MB, pela extensão do
+  Claude no Chrome; vídeo, você arrasta para a pasta do Drive que o Claude deixa aberta.
 
 ## O que o kit faz
 

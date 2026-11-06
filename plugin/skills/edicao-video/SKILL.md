@@ -137,13 +137,10 @@ direto, sem subagentes. Prompt pronto para vídeo novo: `referencias/prompt-sess
 Duas opções. Nenhuma limita a outra: dá para mudar a qualquer hora.
 - **Computador.** Tudo fica em `Edicao-Video/` local. Funciona sem conta Google. (Kit CAAMT: perguntar uma vez, pela skill `caamt-arquivos`.)
 - **Google Drive pelo conector, sem instalar o app do Drive:**
-  1. A pasta do vídeo no Drive é `CAAMT-<Subseção>/Edicao-Video/<AAAA-MM-DD>_<nome>/`, criada **pelo script** (`drive_upload.py pasta`), nunca pelo conector.
-     Gravar o link no `LEIA-ME.md`.
-  2. **Arquivo grande (vídeo) não passa pelo conector** (o arquivo teria de passar inteiro
-     pela conversa). O Claude sobe pelo script do kit, sem instalar o app do Drive:
-     `python <caamt-arquivos>/scripts/drive_upload.py enviar <vídeo> --pasta "CAAMT-<Subseção>/Edicao-Video/<AAAA-MM-DD>_<nome>/final"`.
-     Ainda não configurado: `caamt-arquivos/referencias/permissoes-google.md`; até lá, dar o
-     caminho do arquivo para o usuário arrastar no Drive.
+  1. A pasta do vídeo no Drive é `CAAMT-<Subseção>/Edicao-Video/<AAAA-MM-DD>_<nome>/`, criada
+     pelo conector. Gravar o link no `LEIA-ME.md`.
+  2. **O vídeo a pessoa arrasta** (o conector não leva arquivo grande): skill `caamt-arquivos`,
+     item 3. Capa e imagens até 10 MB podem ir pela extensão do Chrome (item 2).
   3. Depois que o arquivo estiver no Drive, conferir pelo conector (listar a pasta) e anotar
      no `drive.json` da pasta do vídeo, para a página VER_VIDEOS mostrar.
 - Nunca apagar a cópia local sem pedir. Nunca mudar o compartilhamento no Drive sem pedir.
