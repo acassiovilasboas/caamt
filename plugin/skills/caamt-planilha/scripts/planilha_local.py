@@ -75,7 +75,12 @@ def abrir(pasta):
     p = arquivo(pasta)
     if not os.path.exists(p):
         sair("Falta a planilha local. Rode: planilha_local.py criar " + pasta)
-    return load_workbook(p)
+    wb = load_workbook(p)
+    for ws in wb.worksheets:
+        if getattr(ws, "_charts", None) or getattr(ws, "_images", None):
+            sair("A aba %s tem gráfico ou imagem. O kit não grava nessa planilha para não apagá-los: "
+                 "tire o gráfico ou a imagem de planilha.xlsx (pode ficar numa cópia)." % ws.title)
+    return wb
 
 
 def texto(cel):
@@ -93,7 +98,7 @@ def texto(cel):
 
 
 def ler(pasta, aba, wb=None):
-    wb = wb or abrir(pasta)
+    wb = wb if wb is not None else abrir(pasta)
     if NOMES[aba] not in wb.sheetnames:
         sair("A planilha não tem a aba %s. Rode: planilha_local.py criar %s" % (NOMES[aba], pasta))
     ws = wb[NOMES[aba]]
@@ -119,7 +124,8 @@ def para_data(v):
 def por(cel, col, v):
     from openpyxl.styles import Font
     v = v or ""
-    if col in LINKS and v.strip():
+    eh_link = "://" in v or (len(v) > 2 and v[1] == ":" and v[2] in "\\/") or v.startswith("\\\\")
+    if col in LINKS and v.strip() and eh_link:
         alvo = v if "://" in v else "file:///" + v.replace("\\", "/")
         cel.value = LINKS[col] if col != "Fonte" else (v.split("/")[2].replace("www.", "") if "://" in v else LINKS[col])
         cel.hyperlink = alvo
@@ -144,17 +150,11 @@ def salvar(wb, pasta):
         sair("A planilha está aberta no Excel. Feche e rode de novo.")
 
 
-def gravar(pasta, aba, cab, linhas, wb=None):
-    proprio = wb is None
-    wb = wb or abrir(pasta)
+def celulas(wb, aba, linha_excel, cab, valores):
+    """Grava só as células citadas: {nome da coluna: valor}."""
     ws = wb[NOMES[aba]]
-    for i, c in enumerate(cab, 1):
-        ws.cell(1, i).value = c
-    for r, l in enumerate(linhas, 2):
-        for i, col in enumerate(cab):
-            por(ws.cell(r, i + 1), col, l[i] if i < len(l) else "")
-    if proprio:
-        salvar(wb, pasta)
+    for col, v in valores.items():
+        por(ws.cell(linha_excel, cab.index(col) + 1), col, v)
 
 
 def pares(args):
@@ -185,11 +185,26 @@ def hoje():
     return datetime.date.today().strftime("%d/%m/%Y")
 
 
-def historico(pasta, aba, item, mudancas, quem):
-    cab, linhas = ler(pasta, "historico")
+def historico(wb, aba, item, mudancas, quem):
+    cab, linhas = ler(None, "historico", wb)
+    r = len(linhas) + 2
     for col, de, para in mudancas:
-        linhas.append([hoje(), NOMES[aba], item, col, de, para, quem])
-    gravar(pasta, "historico", cab, linhas)
+        celulas(wb, "historico", r, cab, dict(zip(cab, [hoje(), NOMES[aba], item, col, de, para, quem])))
+        r += 1
+
+
+def importar_csv(ws, antigo):
+    with open(antigo, encoding="utf-8-sig", newline="") as f:
+        rows = list(csv.reader(f))
+    if not rows:
+        return
+    larg = max(len(r) for r in rows)
+    c_ant = rows[0] + ["Sem título %d" % k for k in range(1, larg - len(rows[0]) + 1)]
+    for i, c in enumerate(c_ant, 1):
+        ws.cell(1, i).value = c
+    for r, l in enumerate(rows[1:], 2):
+        for i, col in enumerate(c_ant):
+            por(ws.cell(r, i + 1), col, l[i] if i < len(l) else "")
 
 
 def criar(pasta):
@@ -199,46 +214,44 @@ def criar(pasta):
         sair("Falta o openpyxl (gratuito): pip install openpyxl")
     os.makedirs(os.path.join(pasta, "planilha"), exist_ok=True)
     p = arquivo(pasta)
-    feitas, novas, vindas = [], [], []
-    if not os.path.exists(p):
+    feitas, novas, vindas, novo = [], [], [], not os.path.exists(p)
+    if novo:
         wb = Workbook()
         wb.remove(wb.active)
-        for aba, cab in ABAS.items():
-            ws = wb.create_sheet(NOMES[aba])
-            antigo = csv_antigo(pasta, aba)  # planilha antiga em CSV: os dados vêm junto
-            if os.path.exists(antigo):
-                with open(antigo, encoding="utf-8-sig", newline="") as f:
-                    rows = list(csv.reader(f))
-                c_ant = rows[0] if rows else list(cab)
-                for i, c in enumerate(c_ant, 1):
-                    ws.cell(1, i).value = c
-                for r, l in enumerate(rows[1:], 2):
-                    for i, col in enumerate(c_ant):
-                        por(ws.cell(r, i + 1), col, l[i] if i < len(l) else "")
-                vindas.append(NOMES[aba])
-            else:
-                for i, c in enumerate(cab, 1):
-                    ws.cell(1, i).value = c
-                feitas.append(NOMES[aba])
-        salvar(wb, pasta)
-    wb = abrir(pasta)
+    else:
+        wb = abrir(pasta)
+    colunas_novas = {}
     for aba, cab in ABAS.items():
+        antigo = csv_antigo(pasta, aba)
         if NOMES[aba] not in wb.sheetnames:
             ws = wb.create_sheet(NOMES[aba])
+            if os.path.exists(antigo):  # planilha antiga em CSV: os dados vêm junto
+                importar_csv(ws, antigo)
+                vindas.append(NOMES[aba])
+            else:
+                feitas.append(NOMES[aba])
+        ws = wb[NOMES[aba]]
+        atual, linhas = ler(pasta, aba, wb)
+        if ws.cell(1, 1).value in (None, ""):  # aba sem cabeçalho
             for i, c in enumerate(cab, 1):
                 ws.cell(1, i).value = c
-            feitas.append(NOMES[aba])
-            continue
-        atual, _ = ler(pasta, aba, wb)  # coluna nova do kit entra no fim, sem mexer no resto
-        falta = [c for c in cab if norm(c) not in {norm(x) for x in atual}]
-        ws = wb[NOMES[aba]]
+            atual = list(cab)
+        if not linhas and os.path.exists(antigo) and NOMES[aba] not in vindas:
+            importar_csv(ws, antigo)  # aba vazia no Excel e dados no CSV antigo
+            vindas.append(NOMES[aba])
+            atual, _ = ler(pasta, aba, wb)
+        falta = [c for c in cab if norm(c) not in {norm(x) for x in atual}]  # coluna nova no fim
         for k, c in enumerate(falta, len(atual) + 1):
             ws.cell(1, k).value = c
         if falta:
             novas.append("%s (+%s)" % (NOMES[aba], ", ".join(falta)))
+            colunas_novas[NOMES[aba]] = falta
     salvar(wb, pasta)
     import formatar
-    formatar.xlsx(p)
+    if novo:
+        formatar.xlsx(p)  # formatação completa só na criação
+    elif colunas_novas:
+        formatar.xlsx(p, so_colunas=colunas_novas)  # só o cabeçalho das colunas novas
     print("Criadas: " + (", ".join(feitas) or "nenhuma"))
     if vindas:
         print("Copiadas do CSV antigo (os CSV continuam na pasta): " + ", ".join(vindas))
@@ -247,24 +260,25 @@ def criar(pasta):
 
 
 def nova(pasta, aba, dados, quem):
-    cab, linhas = ler(pasta, aba)
-    linha = [""] * len(cab)
-    for k, v in dados.items():
-        linha[coluna(cab, k)] = v
+    wb = abrir(pasta)
+    cab, linhas = ler(pasta, aba, wb)
+    val = {cab[coluna(cab, k)]: v for k, v in dados.items()}
     e, d = achar(cab, "Etapa"), achar(cab, "Na etapa desde")
-    if aba == "parceiros" and e is not None and d is not None and linha[e] and not linha[d]:
-        linha[d] = hoje()
+    if aba == "parceiros" and e is not None and d is not None and val.get(cab[e]) and not val.get(cab[d]):
+        val[cab[d]] = hoje()
     if "Atualizado em" in cab:
-        linha[cab.index("Atualizado em")] = hoje()
-    linhas.append(linha)
-    gravar(pasta, aba, cab, linhas)
+        val["Atualizado em"] = hoje()
+    celulas(wb, aba, len(linhas) + 2, cab, val)
+    item = val.get(cab[0], "")
     if aba != "historico":
-        historico(pasta, aba, linha[0], [("linha nova", "", linha[0])], quem)
-    print("OK: linha nova em %s: %s" % (NOMES[aba], linha[0]))
+        historico(wb, aba, item, [("linha nova", "", item)], quem)
+    salvar(wb, pasta)
+    print("OK: linha nova em %s: %s" % (NOMES[aba], item))
 
 
 def mudar(pasta, aba, chave, dados, quem):
-    cab, linhas = ler(pasta, aba)
+    wb = abrir(pasta)
+    cab, linhas = ler(pasta, aba, wb)
     achou = [i for i, l in enumerate(linhas) if l and norm(l[0]) == norm(chave)]
     if not achou:
         parecidas = [l[0] for l in linhas if l and norm(chave) in norm(l[0])]
@@ -272,26 +286,27 @@ def mudar(pasta, aba, chave, dados, quem):
              (" Parecidas: " + "; ".join(parecidas)) if parecidas else ""))
     if len(achou) > 1:
         sair("Há %d linhas '%s' em %s: perguntar qual." % (len(achou), chave, NOMES[aba]))
-    linha = linhas[achou[0]] + [""] * (len(cab) - len(linhas[achou[0]]))
-    mud = []
+    linha = linhas[achou[0]]
+    mud, val = [], {}
     for k, v in dados.items():
         i = coluna(cab, k)
         if linha[i] != v:
             mud.append((cab[i], linha[i], v))
-            linha[i] = v
+            val[cab[i]] = v
     e, d = achar(cab, "Etapa"), achar(cab, "Na etapa desde")
-    if (aba == "parceiros" and e is not None and d is not None and any(m[0] == cab[e] and norm(m[1]) != norm(m[2]) for m in mud)
+    if (aba == "parceiros" and e is not None and d is not None
+            and any(m[0] == cab[e] and norm(m[1]) != norm(m[2]) for m in mud)
             and not any(norm(k) == norm(cab[d]) for k in dados) and linha[d] != hoje()):
         mud.append((cab[d], linha[d], hoje()))
-        linha[d] = hoje()
+        val[cab[d]] = hoje()
     if not mud:
         print("Nada mudou.")
         return
     if "Atualizado em" in cab:
-        linha[cab.index("Atualizado em")] = hoje()
-    linhas[achou[0]] = linha
-    gravar(pasta, aba, cab, linhas)
-    historico(pasta, aba, linha[0], mud, quem)
+        val["Atualizado em"] = hoje()
+    celulas(wb, aba, achou[0] + 2, cab, val)
+    historico(wb, aba, linha[0], mud, quem)
+    salvar(wb, pasta)
     for c, de, para in mud:
         print("OK: %s · %s: '%s' → '%s'" % (linha[0], c, de, para))
 

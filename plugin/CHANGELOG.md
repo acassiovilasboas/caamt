@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.0.9 (06/11/2026)
+- Parceiros proativo: o Claude puxa conversa sobre parceiro parado, pergunta o que está travando e
+  oferece saídas (`caamt-parceiros/referencias/dificuldades.md`).
+- Planilha formatada: no computador vira Excel (`planilha/planilha.xlsx`), com cabeçalho fixo, filtro,
+  listas e cores; no Drive, a formatação vai pelo conector do Sheets (`formatar.py`). Planilha antiga
+  em CSV é copiada para o Excel sem perder dado. Cada gravação mexe só nas células que mudaram.
+- Arquivo grande no Drive: a pessoa arrasta, com a pasta do Drive e o arquivo já abertos
+  (`abrir_para_arrastar.py`). Sai o envio por chave do Google Cloud.
+- Cronograma: semana sugerida, datas comemorativas, "planeje o mês" e Quarta de Lei como tema.
+- Carrossel de 3 a 7 telas (`carrossel.py`).
+- Correções da revisão da 1.0.8 (data da etapa, cobrança em planilha antiga, foto girada, cores,
+  diretor de arte).
+
 ## 1.0.8 (06/11/2026)
 - Planilha e pastas juntas, sempre: em pergunta sobre parceiros, publicações ou vídeos, o kit lê a
   planilha e as pastas (`parceiros/`, `publicacoes/`, `Edicao-Video/`), no Drive pelo conector ou no
@@ -66,7 +79,7 @@
   disponível é por demanda) e Origem de cada tema.
 - Primeira conversa sem menu: cumprimenta, mostra o que achou e oferece um passo concreto.
 - Todo arquivo para a pessoa ler sai em HTML (`md_para_html.py`).
-- Sem resto de palestra, testes ou outros projetos no kit.
+- Limpeza: o kit só tem o que serve à rotina da Delegada e do Delegado.
 
 ## 1.0.1 (05/11/2026)
 Correções da revisão de três subagentes: scripts, aderência ao pedido e questionador.

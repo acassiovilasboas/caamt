@@ -36,7 +36,9 @@ Toda leitura e gravação passa pela skill `caamt-planilha` (Drive ou `planilha/
    `python <skill>/scripts/abrir_para_arrastar.py <link da pasta> <arquivo>`, que abre a pasta
    do Drive no navegador e o arquivo selecionado no computador. A mensagem é uma linha:
    "Abri a pasta do Drive e o arquivo: é só arrastar o arquivo para a pasta." Depois, conferir
-   pelo conector que chegou (nome e tamanho) e pôr o link na planilha.
+   pelo conector que chegou (nome e tamanho) e pôr o link na planilha. Não chegou (a pessoa
+   deixou para depois): anotar em `memoria/pendencias.md` o arquivo e a pasta, e lembrar na
+   próxima conversa.
 4. **Pastas no Drive:** pelo conector (pasta = `contentMimeType`
    `application/vnd.google-apps.folder`, dentro da pasta-mãe pelo id). A pasta `CAAMT-<Subseção>`
    é criada uma vez e o id vai para `memoria/perfil.md`.

@@ -74,6 +74,8 @@ def tela(c, base, n, total, rotulo, titulo, texto, fundo=None, grande=False):
     y = max(220, (H - 160 - alto) // 2)  # bloco centrado, acima do rodapé
     if rotulo:
         d.text((M, y - 70), rotulo.upper(), font=fonte(c.get("fonte_texto"), base, "Poppins-Bold.ttf", 30), fill=dest)
+    if y + alto > H - 170:
+        raise SystemExit("Texto demais na tela %d (%s): encurtar ou dividir em duas telas." % (n, titulo[:40]))
     y = escrever(d, (M, y), titulo, ft, tx, W - 2 * M, 1.12)
     d.rectangle([M, y + 24, M + 120, y + 32], fill=dest)
     escrever(d, (M, y + 70), texto, fx, tx, W - 2 * M, 1.4)

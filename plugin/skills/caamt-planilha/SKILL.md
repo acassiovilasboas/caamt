@@ -29,7 +29,8 @@ existe. Não criar "por garantia".
    Cria `planilha/planilha.xlsx` já formatado (abre no Excel). Precisa do openpyxl (gratuito):
    faltando, pedir o "pode" e rodar `pip install openpyxl`. Quem tinha a planilha antiga em CSV:
    o `criar` copia os dados para o Excel e deixa os CSV na pasta. Planilha aberta no Excel não
-   aceita gravação: pedir para fechar.
+   aceita gravação: pedir para fechar. Gráfico ou imagem colados em `planilha.xlsx` se perdem ao
+   gravar: o script recusa e pede para tirar (podem ficar numa cópia).
    No segundo caso, dizer em uma linha: "Liguei a planilha aqui no computador porque o conector do
    Google Sheets não está ativo; quando ligar, eu passo para o Drive."
 

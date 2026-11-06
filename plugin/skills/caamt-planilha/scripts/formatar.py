@@ -7,7 +7,8 @@ escolha e cores (data vencida, etapa, estado de cada documento, status do post).
 
 abas.json (lido do Drive na hora): {"Parceiros": {"sheetId": 123, "cabecalho": ["Parceiro", ...]}, ...}
 A saída de "drive" é a lista `requests` do update_spreadsheet. Tudo é achado pelo nome da coluna,
-então vale para planilha antiga, com outra ordem. Rodar de novo não duplica nada no xlsx.
+então vale para planilha antiga, com outra ordem. Formatação completa só na criação: ela
+substitui fontes, listas e cores da planilha.
 """
 import json
 import sys
@@ -66,15 +67,16 @@ def regras(aba, cab):
                         (c, c, '%s2="não se aplica"' % c, CINZA, False, "AAAAAA")]
     if aba == "Cronograma" and "Status" in ix:
         s, ult = letra(ix["Status"]), letra(len(cab))
-        out += [("A", ult, '$%s2="publicado"' % s, VERDE, False, None),
-                ("A", ult, '$%s2="pronto"' % s, AZULC, False, None)]
-        if "Data" in ix:
+        if "Data" in ix:  # primeiro: data vencida vence a cor da linha
             d = letra(ix["Data"])
             out.append((d, d, 'AND($%s2<>"",$%s2<TODAY(),$%s2<>"publicado")' % (d, d, s), VERM, True, VERM_TX))
+        out += [("A", ult, '$%s2="publicado"' % s, VERDE, False, None),
+                ("A", ult, '$%s2="pronto"' % s, AZULC, False, None)]
     return [r for r in out if r]
 
 
-def xlsx(caminho):
+def xlsx(caminho, so_colunas=None):
+    """so_colunas={aba: [colunas]}: só cabeçalho e largura dessas colunas; o resto fica como está."""
     from openpyxl import load_workbook
     from openpyxl.formatting.rule import FormulaRule
     from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
@@ -82,6 +84,20 @@ def xlsx(caminho):
     from openpyxl.formatting.formatting import ConditionalFormattingList
     F = lambda c: PatternFill("solid", start_color=c, end_color=c)
     wb = load_workbook(caminho)
+    if so_colunas:
+        for ws in wb.worksheets:
+            cab = [c.value or "" for c in ws[1]]
+            for nome in so_colunas.get(ws.title, []):
+                if nome in cab:
+                    i = cab.index(nome) + 1
+                    h = ws.cell(1, i)
+                    h.font = Font(bold=True, color="FFFFFF", size=11)
+                    h.fill = F(CINZA_TX if nome in TECNICAS else AZUL)
+                    h.alignment = Alignment(vertical="center", wrap_text=True)
+                    ws.column_dimensions[letra(i)].width = LARG.get(nome, 16)
+        wb.save(caminho)
+        print("Formatado (só colunas novas): " + caminho)
+        return
     for ws in wb.worksheets:
         cab = [c.value or "" for c in ws[1]]
         if not any(cab):
@@ -154,14 +170,14 @@ def drive(arq):
                             "startColumnIndex": i, "endColumnIndex": i + 1}, "rule": {"condition": {
                             "type": "ONE_OF_LIST", "values": [{"userEnteredValue": o} for o in ops]},
                             "strict": False, "showCustomUi": True}}})
-        for a, b, f, fundo, neg, tx in regras(nome, cab):
+        for k, (a, b, f, fundo, neg, tx) in enumerate(regras(nome, cab)):
             ia, ib = cab_index(a), cab_index(b)
             fmt = {"backgroundColorStyle": {"rgbColor": rgb(fundo)}}
             if neg or tx:
                 fmt["textFormat"] = {"bold": neg}
                 if tx:
                     fmt["textFormat"]["foregroundColorStyle"] = {"rgbColor": rgb(tx)}
-            req.append({"addConditionalFormatRule": {"index": 0, "rule": {"ranges": [{"sheetId": sid,
+            req.append({"addConditionalFormatRule": {"index": k, "rule": {"ranges": [{"sheetId": sid,
                         "startRowIndex": 1, "endRowIndex": FIM, "startColumnIndex": ia, "endColumnIndex": ib + 1}],
                         "booleanRule": {"condition": {"type": "CUSTOM_FORMULA", "values": [{"userEnteredValue": "=" + f}]},
                                         "format": fmt}}}})

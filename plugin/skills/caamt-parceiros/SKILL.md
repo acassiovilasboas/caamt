@@ -25,8 +25,8 @@ gravar a planilha: skill `caamt-planilha`. Pastas: skill `caamt-arquivos`.
 | "Resumo da semana" | Parceiros por etapa, o que andou em 7 dias, as 3 próximas ações |
 
 ## Puxar conversa sobre parceiro parado
-Parado = mais de 7 dias na mesma Etapa ("Na etapa desde"), ou 15 em "Enviado à CAAMT", sem
-"Não fechou". No começo da conversa (e no "quem está pendente?"), puxar um parceiro por vez, o
+Parado = mais de 7 dias na mesma Etapa ("Na etapa desde"), ou 15 em "Enviado à CAAMT". Não
+contam "Divulgado" (convênio fechado) nem "Não fechou" (vai para a retomada). No começo da conversa (e no "quem está pendente?"), puxar um parceiro por vez, o
 mais parado primeiro, em uma frase natural: "A Doce Araguaia está há 9 dias aguardando
 documentos. O que está travando?" Sem lista de cobrança.
 - A resposta vai para "O que está travando", nas palavras da pessoa.
