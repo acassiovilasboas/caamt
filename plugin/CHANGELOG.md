@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.0.6 (06/11/2026)
+- Painel refeito, tema escuro (Inter; azul #7C9CFF, lilás #B39CFF, âmbar #E8B45A). Abas Tarefas,
+  Postagens, Parceiros, Temas e Pautas; itens abrem e fecham; botões grandes com resposta ao toque
+  ("Copiado ✓").
+- Parceiro com visual de empresa: etapas do convênio, contato, benefício e cada documento com estado
+  (validado, recebido falta conferir, problema, falta).
+- Item que precisa do Claude: "Com o Claude", botão "Abrir no Claude" (abre a sessão na pasta, com o
+  pedido escrito) e "Copiar pedido para o Claude".
+- Documentos: "ok <data>" e "problema: <motivo>" além de "recebido". Mensagens usam o Responsável do parceiro.
+
 ## 1.0.5 (06/11/2026)
 - Linha editorial sem a coluna de exemplo: nada sobre os perfis consultados em planilha, painel ou página.
 - Contato com o desenvolvedor só depois de cinco tentativas (ou pedido da pessoa).

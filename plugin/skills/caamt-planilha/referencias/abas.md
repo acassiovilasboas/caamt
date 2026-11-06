@@ -17,9 +17,11 @@ Memória das pesquisas: uma linha por pauta, sempre com **Fonte** (URL). **Usada
 post do Cronograma que usou a pauta.
 
 ## Parceiros
-Uma linha por parceiro. Colunas de documento: vazio = não recebido; "recebido 05/11" =
-recebido; "não se aplica" quando é do outro tipo (PJ/PF). **Falta**: texto curto ("alvará,
-logo"), atualizado a cada documento. **Nível da cobrança**: vazio, 1, 2 ou 3 (1ª, lembrete,
+Uma linha por parceiro. Colunas de documento: vazio = falta; "recebido 05/11" = chegou, falta
+conferir; "ok 06/11" = conferido e válido; "problema: vencido" = conferido com problema (motivo
+curto, sem dado pessoal); "não se aplica" quando é do outro tipo (PJ/PF). **Responsável**: nome de quem
+responde pelo parceiro, usado nas mensagens. **Falta**: texto curto ("alvará, logo"), com o que
+está vazio ou com problema, atualizado a cada documento. **Nível da cobrança**: vazio, 1, 2 ou 3 (1ª, lembrete,
 última). **Próxima mensagem**: o rascunho pronto para copiar (vira o botão WhatsApp do painel).
 **Pasta (link)**: link da pasta do parceiro no Drive ou caminho no computador (botão "Abrir pasta").
 **Evento na agenda**: id do evento criado pela skill `caamt-agenda` (evita evento duplicado). Achar a linha pelo nome, sem

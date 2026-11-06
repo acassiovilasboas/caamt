@@ -16,7 +16,7 @@ gravar a planilha: skill `caamt-planilha`. Pastas: skill `caamt-arquivos`.
 | Como ela fala | O que fazer |
 |---|---|
 | "Comecei com a empresa X, 10% para advogados" | Linha nova, Etapa "Prospecção"; criar `parceiros/<X>/` (no Drive, só pelo script: `caamt-arquivos`); mostrar a sequência de mensagens (1ª: documentos e onde conseguir; 2ª: convencimento) |
-| "Chegou o CNPJ da X" | Marcar recebido com a data, recalcular "Falta", mudar a Etapa se completou |
+| "Chegou o CNPJ da X" | Marcar "recebido <data>" (falta conferir), recalcular "Falta"; oferecer a conferência |
 | "Os documentos da X estão ok?" | Skill `caamt-documentos` |
 | "Quem está pendente?" | Tabela curta: parceiro, etapa, falta, dias parado (do mais atrasado) |
 | "Cobra a X" | Mensagem no nível certo (1ª, lembrete, última) pelo Histórico; anotar a data e a próxima |
@@ -27,6 +27,8 @@ gravar a planilha: skill `caamt-planilha`. Pastas: skill `caamt-arquivos`.
 ## Regras
 - Confirmar em uma linha o que vai mudar; gravar só as células que mudaram; toda mudança vira
   uma linha no Histórico.
+- Mensagem usa o nome do **Responsável** do parceiro. Não tem? Perguntar uma vez, na hora da
+  primeira mensagem, e gravar.
 - Mensagem é rascunho: quem envia é a pessoa. Fica também na coluna Próxima mensagem, pronta
   para copiar.
 - A planilha guarda só **se** recebeu e **quando**. Nunca número de CPF, RG ou outro documento.

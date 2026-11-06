@@ -15,8 +15,8 @@ description: "Confere os documentos que um parceiro mandou para o convênio com 
    `caamt-memoria`). Depois:
    - o que falta ou está errado: mensagem pronta para o parceiro (`mensagens.md`, nível certo);
    - tudo certo: "pronto para enviar à CAAMT" e o link do formulário.
-4. Na planilha: marcar "recebido <data>" só no que passou. Etapa "Documentos completos" quando
-   não faltar nada.
+4. Na planilha (skill `caamt-planilha`): "ok <data>" no que passou, "problema: <motivo curto>" no
+   que não passou. Etapa "Documentos completos" quando todos estiverem "ok".
 
 Sigilo: não copiar número de CPF, RG, CNPJ ou endereço de pessoa para a planilha nem para a
 resposta. Dizer só "documento com foto: legível, válido".
