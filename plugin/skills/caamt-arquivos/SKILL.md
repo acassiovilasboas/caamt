@@ -17,20 +17,16 @@ CAAMT-<Subseção>/
   Edicao-Video/                  vídeos (skill edicao-video)
   marca/                         logos, molduras, rodapé, MARCA.md
   coringa/                       fotos da OAB, da sede, dos delegados, do quadro social
-  linha-editorial.md
 ```
 Local: dentro da pasta de trabalho. Drive: `Meu Drive/CAAMT-<Subseção>/`.
 
-## Planilha "CAAMT – <Subseção>" (abas Parceiros, Cronograma, Pautas, Config, Histórico)
-- Drive: Google Planilhas pelos conectores do Google Drive e do Google Sheets (como criar: `caamt-parceiros/referencias/planilha.md`).
-- Local: um CSV por aba em `planilha/` (UTF-8 com BOM, abre no Excel).
-- Sempre ler antes de gravar e gravar **só as células que mudaram**. A pessoa pode editar à
-  mão: o que ela escreveu vale.
+## Planilha
+Toda leitura e gravação passa pela skill `caamt-planilha` (Drive ou `planilha/` no computador).
 
 ## Mandar arquivo para o Drive (o Claude faz)
 1. **Texto, planilha, Markdown**: pelo conector do Google Drive (`create_file`).
 2. **Vídeo, imagem, PDF**: o conector não serve (o arquivo teria de passar inteiro pela
-   conversa; um vídeo de 34 MB não subiu no teste de 04/11/2026). Usar o script, que fala
+   conversa, e arquivo grande não passa). Usar o script, que fala
    direto com o Google:
    `python <skill>/scripts/drive_upload.py enviar <arquivo> --pasta "CAAMT-<Subseção>/<subpasta>"`
    Ele cria as pastas que faltam, não sobe duas vezes o mesmo arquivo e imprime o link.

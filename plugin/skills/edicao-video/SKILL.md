@@ -105,7 +105,8 @@ CAAMT", "Fazer a capa", "Revisar", "Entregar".
    rodapé se ele quiser.
    **Versões:** entregar 2 versões diferentes (ex.: cortes ou legenda diferentes), salvo
    regra do usuário ("só uma"). Dizer em uma linha o que muda entre elas.
-9. **Registrar** no `LEIA-ME.md` da pasta: decupagem, decisões, dúvidas, quem revisou.
+9. **Registrar** no `LEIA-ME.md` da pasta: decupagem, decisões, dúvidas, quem revisou. Kit
+   CAAMT: gerar também `LEIA-ME.html` (`caamt-memoria/scripts/md_para_html.py`) e dar esse caminho.
 10. **Entregar onde o usuário escolher** (seção "Entrega").
 
 Tarefa pequena (cortar um trecho, trocar legenda, gerar capa, converter): fazer
@@ -136,8 +137,8 @@ Duas opções. Nenhuma limita a outra: dá para mudar a qualquer hora.
 - **Google Drive pelo conector, sem instalar o app do Drive:**
   1. A pasta do vídeo no Drive é `CAAMT-<Subseção>/Edicao-Video/<AAAA-MM-DD>_<nome>/`, criada **pelo script** (`drive_upload.py pasta`), nunca pelo conector.
      Gravar o link no `LEIA-ME.md`.
-  2. **Arquivo grande (vídeo) não passa pelo conector** (testado em 04/11/2026: 34 MB não
-     subiu). O Claude sobe pelo script do kit, sem instalar o app do Drive:
+  2. **Arquivo grande (vídeo) não passa pelo conector** (o arquivo teria de passar inteiro
+     pela conversa). O Claude sobe pelo script do kit, sem instalar o app do Drive:
      `python <caamt-arquivos>/scripts/drive_upload.py enviar <vídeo> --pasta "CAAMT-<Subseção>/Edicao-Video/<AAAA-MM-DD>_<nome>/final"`.
      Ainda não configurado: `caamt-arquivos/referencias/permissoes-google.md`; até lá, dar o
      caminho do arquivo para o usuário arrastar no Drive.

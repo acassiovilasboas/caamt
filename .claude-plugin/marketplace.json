@@ -1,7 +1,7 @@
 {
   "name": "kit-caamt",
   "owner": { "name": "Acassio Vilas Boas e Celso Farias" },
-  "description": "Kit da Delegada e do Delegado da CAAMT (palestra no 4º Colégio de Presidentes e Delegados, Barra do Garças, nov/2026).",
+  "description": "Ferramentas para a rotina da Delegada e do Delegado da CAAMT (Caixa de Assistência dos Advogados de Mato Grosso): vídeo, conteúdo e parceiros.",
   "plugins": [
     {
       "name": "kit-caamt",

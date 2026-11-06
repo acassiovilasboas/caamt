@@ -7,10 +7,12 @@ description: "Cronograma de postagens da subseção na aba Cronograma da planilh
 
 ## Colunas (aba Cronograma)
 `Data | Tema | Pauta | Formato | Roteiro | Legenda | Hashtags | Primeiro comentário | Arte (link) | Status | Fonte | Atualizado em`
-Status: ideia, pronto, publicado. Tema vem de `linha-editorial.md` (ler antes).
+Status: ideia, pronto, publicado. Tema vem da aba Linha editorial (ler antes), respeitando a
+Frequência de cada tema; tema "por demanda" (ex.: convênio) só entra quando houver o fato.
+Ler e gravar sempre pela skill `caamt-planilha`. A planilha não existe ainda: ela cria.
 
 ## Montar ou estender
-1. Ler a linha editorial, a aba Cronograma (o que já existe) e `memoria/` (rotina: dias e
+1. Ler a aba Linha editorial, a aba Cronograma (o que já existe) e `memoria/` (rotina: dias e
    horários em que a pessoa posta).
 2. Eventos: os que a pessoa contar e os vistos nos perfis públicos (agente `perfis-instagram`).
    Cada evento ganha posts **antes** (convite), **no dia** (Stories) e **depois** (cortes, fotos).

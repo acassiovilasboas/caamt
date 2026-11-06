@@ -38,7 +38,7 @@ Consulta em 03/11/2026. São só dados publicados pela OAB-MT e pela CAAMT, mais
 | 26ª | Comodoro | Campos de Júlio, Nova Lacerda | não encontrado | Gabriela Leite Heinsch | Elisângela Azeredo da Silva Alves | caamt.comodoro@caamt.com.br | OAB/CAA (65) 3283-2431 |
 | 27ª | Vila Rica | Alto Boa Vista, Bom Jesus do Araguaia, Canabrava do Norte, Confresa, Luciara, Novo Santo Antônio, Porto Alegre do Norte, Santa Cruz do Xingu, São Félix do Araguaia, São José do Xingu, Serra Nova Dourada | não encontrado | Indyara Winter Cavalcante | Luana Costa Lico | caamt.vilarica@caamt.com.br | CAA (66) 3554-2133 |
 | 28ª | Água Boa | Nova Nazaré | não encontrado | Larisse Bento de Resende | Diego Mayolino Montecchi | caamt.aguaboa@caamt.com.br | OAB (66) 98432-2759 / CAA (66) 3648-1862 |
-| 29ª | Paranatinga | Gaúcha do Norte | não encontrado | Fernando Vazel Bispo da Silva (pode ter mudado: o 3º Colégio, em 05/2026, cita uma "Thaís Campos" sem dizer a subseção) | Jessyca Nagano Bezerra | caamt.paranatinga@caamt.com.br | CAA (66) 3573-1777 |
+| 29ª | Paranatinga | Gaúcha do Norte | não encontrado | Fernando Vazel Bispo da Silva (pode ter mudado) | Jessyca Nagano Bezerra | caamt.paranatinga@caamt.com.br | CAA (66) 3573-1777 |
 | Seccional | Cuiabá | Acorizal, Barão de Melgaço, Chapada dos Guimarães, Santo Antônio do Leverger | @oabmatogrosso | – | – | presidencia@oabmt.org.br | (65) 3613-0900 |
 | CAAMT | Cuiabá | – | @caamt1 | – | – | (sede não levantada) | (sede não levantada) |
 
@@ -65,13 +65,6 @@ Consulta em 03/11/2026. São só dados publicados pela OAB-MT e pela CAAMT, mais
 | Tesoureiro | Vinicius Kenji Tanaka |
 | Suplentes | Caio César Manoel, Edison Oliveira de Souza Júnior, Paula Assumpção de Almeida Teibel, Renata Cintra Rascheja Francelino, Roberta de Arruda Chicaú |
 
-**Colégios**
-
-- **Colégio de Presidentes de Subseções:** reúne os 29 presidentes com a diretoria da seccional.
-  - O 1º foi em Cuiabá, em 06/2025, e gerou a [Carta de Cuiabá](https://www.oabmt.org.br/noticia/22445/carta-de-cuiaba-consolida-resultados-e-decisoes-do-1--colegio-de-presidentes-e-delegados-da-oab-mt---gestao-2025-2027).
-  - O 2º foi em Sorriso, em 11/2025.
-  - O 3º foi em 2026.
-- **Colégio de Delegados(as) da CAAMT:** são 29 delegados(as), 17 deles mulheres, segundo a [CAAMT, 26/02/2025](https://www.caamt.com.br/noticia/renovacao-no-quadro-de-delegados-caamt-supera-80). A diretoria da CAAMT conduz os encontros, e o presidente Rodrigo Araújo faz a abertura. O 3º encontro foi em Cuiabá, em 05/2026, com 28 subseções.
 
 ## Resumo e limites
 

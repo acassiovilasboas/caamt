@@ -1,0 +1,37 @@
+---
+name: caamt-planilha
+description: "Única dona da planilha de trabalho da subseção (abas Linha editorial, Cronograma, Pautas, Parceiros, Config, Histórico): acha, cria na hora em que for útil e grava só o que mudou, no Google Drive ou no computador. Use sempre que outra skill do kit precisar ler ou gravar na planilha, ou quando a pessoa falar em planilha."
+---
+
+# Planilha da subseção
+
+Nome: **"CAAMT – <Subseção>"**. Colunas de cada aba: `python <skill>/scripts/planilha_local.py colunas`
+(vale para o Drive e para o computador). Significado das colunas: `referencias/abas.md`.
+
+## Achar
+`memoria/perfil.md` tem `planilha:` com o id do Drive ou `local`. Não tem: a planilha ainda não
+existe. Não criar "por garantia".
+
+## Criar (só quando a conversa precisar guardar algo nela)
+1. Primeira vez? Perguntar junto, numa frase natural: "Vou deixar isso numa planilha. Prefere no
+   seu Google Drive, que abre no celular, ou aqui no computador?" (gravar a escolha no perfil;
+   se já está no perfil, não perguntar).
+2. **Drive**, com os conectores do Google Drive e do Google Sheets ligados: criar pelo conector do
+   Drive (CSV com o cabeçalho da primeira aba, `text/csv`, convertido em planilha), dentro da
+   pasta `CAAMT-<Subseção>` se o script de upload já a criou, senão em Meu Drive. Adicionar as
+   outras abas pelo conector do Sheets e gravar os cabeçalhos. Ler de volta para conferir.
+   Guardar o id no perfil e o link na aba Config.
+3. **Computador**, ou Drive sem o conector do Sheets: `planilha_local.py criar <pasta CAAMT>`.
+   No segundo caso, dizer em uma linha: "Liguei a planilha aqui no computador porque o conector do
+   Google Sheets não está ativo; quando ligar, eu passo para o Drive."
+4. Entregar o link (Drive) ou a página `planilha/ver.html` (computador: `planilha_local.py html`).
+
+## Gravar (todas as skills passam por aqui)
+- Ler antes. Gravar **só as células que mudaram**; linha nova vai no fim. Nunca regravar a
+  planilha ou a aba inteira: a pessoa pode ter editado à mão, e o que ela escreveu vale.
+- Drive: conector do Sheets, intervalo exato (ex.: `Cronograma!J7`). Computador:
+  `planilha_local.py mudar` / `nova` (já registram o Histórico).
+- No Drive, registrar cada mudança na aba Histórico (data, aba, item, o que mudou, de, para,
+  quem: usuário ou Claude).
+- Computador: depois de gravar, gerar de novo `planilha/ver.html` e dar esse caminho.
+- Nada de CPF, RG ou número de documento em nenhuma aba.

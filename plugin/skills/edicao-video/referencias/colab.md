@@ -15,7 +15,7 @@ Medido em 03/11/2026, na T4 grátis, comparando com um notebook de 8 núcleos (G
 |---|---|---|
 | Gravar o vídeo (teste sintético) | 1,42x tempo real (NVENC) | 1,11x (libx264) |
 | CPU do Colab sem NVENC | 0,36x | - |
-| Transcrever 16 s de fala | 5 s, modelo medium, sem erro | 8 s, modelo small, errou "Unimed" |
+| Transcrever 16 s de fala | 5 s, modelo medium, sem erro | 8 s, modelo small, errou um nome próprio |
 
 Conclusão: em PC razoável, local basta. O Colab vale a pena para PC fraco, vídeo longo
 ou quando a transcrição precisar de mais precisão. Lembrar que mandar e baixar o vídeo

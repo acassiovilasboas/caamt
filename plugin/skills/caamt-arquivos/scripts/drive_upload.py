@@ -7,9 +7,9 @@ mexe nos arquivos e pastas que ele mesmo criou). Uso:
   python drive_upload.py configurar <client_secret.json>   # uma vez (ver permissoes-google.md)
   python drive_upload.py login                             # uma vez: abre o navegador
   python drive_upload.py status
-  python drive_upload.py pasta "CAAMT-Barra/publicacoes/2026-11-05_box77"
-  python drive_upload.py enviar <arquivo> --pasta "CAAMT-Barra/Edicao-Video/2026-11-05_box77/final"
-  python drive_upload.py listar --pasta "CAAMT-Barra/publicacoes"
+  python drive_upload.py pasta "CAAMT-<Subseção>/publicacoes/<AAAA-MM-DD>_<parceiro>"
+  python drive_upload.py enviar <arquivo> --pasta "CAAMT-<Subseção>/Edicao-Video/<AAAA-MM-DD>_<parceiro>/final"
+  python drive_upload.py listar --pasta "CAAMT-<Subseção>/publicacoes"
 
 Saída curta (uma linha por arquivo): id, nome, link. Credenciais em ~/.kit-caamt/.
 """

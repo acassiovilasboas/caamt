@@ -18,7 +18,7 @@ uma tarefa precisa dela, e fica guardada para não ser pedida de novo.
 | `memoria/pendencias.md` | O que falta pedir ou fazer (arte que falta, arquivo a subir) |
 
 Não existe a pasta `memoria/`: criar com os modelos abaixo, preenchendo só o que já se sabe.
-Os dados de trabalho (parceiros, cronograma, pautas) ficam na planilha (skill `caamt-arquivos`).
+Os dados de trabalho (linha editorial, cronograma, pautas, parceiros) ficam na planilha (skill `caamt-planilha`).
 
 ## Toda tarefa
 1. Ler `memoria/regras.md` e a seção da área em `memoria/aprendizados.md`. Ler `perfil.md`.
@@ -32,6 +32,15 @@ Os dados de trabalho (parceiros, cronograma, pautas) ficam na planilha (skill `c
 - Mesmo ajuste pedido 2 vezes (ex.: sempre encurta a legenda): propor virar regra.
 - Rotina que o usuário mostrar (dia que posta, quem publica, horário): gravar no perfil.
 - Nunca editar os arquivos do kit (são trocados na atualização). O que se aprende vai para `memoria/`.
+
+## Arquivo para a pessoa ler é página HTML
+Tudo o que a pessoa vai ler, analisar ou consultar (linha editorial, resumo do vídeo, relatório
+de documentos, resumo do mês) sai em **HTML**, que abre com duplo clique. O `.md` fica só como
+fonte do Claude: escrever o `.md` e gerar a página com
+`python <skill>/scripts/md_para_html.py <arquivo.md>` (cria o `.html` ao lado). Mudou o `.md`?
+Gerar de novo. Na resposta, dar o caminho do `.html`, nunca o do `.md`. Arquivos internos
+(`memoria/`, `analise/`, `transcricao/`) ficam só em `.md`; se a pessoa pedir para ver a
+memória, gerar a página na hora.
 
 ## Nome e cargo (padrão; o usuário pode mudar)
 "Caixa" sozinho fica vago. Primeira menção: **Caixa de Assistência dos Advogados de Mato
@@ -47,7 +56,8 @@ Fonte: https://www.caamt.com.br/pagina/delegados-as
 - Cargo: Delegada|Delegado da CAAMT na Subseção de <cidade> | cidades atendidas:
 - Perfis: pessoal @ | subseção @ | CAAMT @caamt1
 - Guardar arquivos em: (perguntar na primeira vez que precisar) local | drive
-- Drive: pasta raiz id= | planilha id=
+- Drive: pasta raiz id=
+- planilha: (id do Drive | local | ainda não criada)
 - Computador: (do ambiente.py, quando editar vídeo)
 - Rotina: (preencher com o uso)
 ```

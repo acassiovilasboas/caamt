@@ -1,6 +1,6 @@
 # Receita: vídeo de parceiro da CAAMT (Caixa de Assistência dos Advogados de Mato Grosso)
 
-Regra de negócio dada pelo usuário em 03/11/2026, depois de um roteiro que errou o foco.
+Regra de negócio da CAAMT para vídeo de parceiro.
 
 ## Quem fala, para quem, para quê
 
@@ -47,7 +47,7 @@ negociação, agradecimentos longos e bastidores saem.
 - Rodapé com logos (CAAMT + OAB + nome da subseção), de y 1458 para baixo: usar no **cartão
   final** ou em vídeo sem moldura. **É da subseção do usuário**, porque cada delegado(a) é de uma
   cidade. O arquivo de Barra do Garças que vem no kit é só exemplo: usar o rodapé que o usuário
-  enviou na entrevista. Se não tiver, avisar e não usar o de outra cidade.
+  enviou. Se não tiver, avisar e não usar o de outra cidade.
 - Texto do post e legenda: seguir o padrão "Convênio Disponível" de `modelos/caamt/MARCA.md`.
   O vídeo segue a mesma ordem do post: nova parceria, depois o benefício, depois o contato.
 

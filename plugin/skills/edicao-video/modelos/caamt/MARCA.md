@@ -1,7 +1,6 @@
 # Marca: Caixa de Assistência dos Advogados de MT (CAAMT) + subseção
 
-Modelo que vem no kit. No primeiro uso de uma Delegada ou um Delegado da CAAMT (entrevista em
-`referencias/primeiro-uso.md`, item 4), copiar esta pasta para
+Modelo que vem no kit. No primeiro vídeo de uma Delegada ou um Delegado da CAAMT (`referencias/primeiro-uso.md`, item 4), copiar esta pasta para
 `Edicao-Video/CAAMT-<subseção>/marca/` e completar o que for da subseção. Gerar o
 `marca.json` só com os valores confirmados (`referencias/documento-de-marca.md`).
 
@@ -15,9 +14,9 @@ Modelo que vem no kit. No primeiro uso de uma Delegada ou um Delegado da CAAMT (
 
 | Item | Valor | Fonte | Situação |
 |---|---|---|---|
-| Quem publica | Caixa de Assistência (CAAMT), pela subseção | usuário, 03/11/2026 | confirmado |
-| Objetivo dos vídeos e posts de parceiro | divulgar a nova parceria e o benefício para o advogado | usuário, 03/11/2026 | confirmado |
-| Roteiro | `referencias/receitas/parceiro-caixa.md` | usuário, 03/11/2026 | confirmado |
+| Quem publica | Caixa de Assistência (CAAMT), pela subseção | regra de negócio da CAAMT | confirmado |
+| Objetivo dos vídeos e posts de parceiro | divulgar a nova parceria e o benefício para o advogado | regra de negócio da CAAMT | confirmado |
+| Roteiro | `referencias/receitas/parceiro-caixa.md` | regra de negócio da CAAMT | confirmado |
 | Sigla | CAAMT (logo); "CAA/MT" no selo da moldura | artes | extraído |
 | Slogan | ESSENCIAL PARA VOCÊ. | moldura de Stories | extraído |
 | Cores das molduras | roxo `#562094`, azul `#33229B`, magenta `#C71279`, roxo escuro `#831C8A` | medidas | extraído |

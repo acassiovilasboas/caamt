@@ -9,8 +9,8 @@ A pessoa fala do jeito dela ("comecei a conversar com a doceria X", "chegou o al
 clínica", "cobra a ótica"). Você entende, atualiza a planilha e entrega o próximo passo.
 
 Ler antes: `referencias/regras-caixa.md` (documentos oficiais e etapas),
-`referencias/planilha.md` (colunas) e `referencias/mensagens.md` (modelos). Planilha e pastas:
-skill `caamt-arquivos`.
+`caamt-planilha/referencias/abas.md` (colunas) e `referencias/mensagens.md` (modelos). Ler e
+gravar a planilha: skill `caamt-planilha`. Pastas: skill `caamt-arquivos`.
 
 ## Pedidos comuns
 | Como ela fala | O que fazer |

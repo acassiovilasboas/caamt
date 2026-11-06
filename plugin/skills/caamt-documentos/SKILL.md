@@ -10,7 +10,9 @@ description: "Confere os documentos que um parceiro mandou para o convênio com 
 2. Mandar o agente `documentos-conferente` com: a pasta, o tipo (PJ/PF) e a lista oficial de
    `caamt-parceiros/referencias/regras-caixa.md`. Muitos arquivos ou PDFs grandes: sempre pelo
    agente, para não encher a conversa.
-3. Responder com a tabela que ele devolver (documento, situação, motivo) e:
+3. Responder com a tabela que ele devolver (documento, situação, motivo). Gravar a mesma
+   tabela em `parceiros/<Parceiro>/conferencia.md` e gerar `conferencia.html` (regra de página em
+   `caamt-memoria`). Depois:
    - o que falta ou está errado: mensagem pronta para o parceiro (`mensagens.md`, nível certo);
    - tudo certo: "pronto para enviar à CAAMT" e o link do formulário.
 4. Na planilha: marcar "recebido <data>" só no que passou. Etapa "Documentos completos" quando

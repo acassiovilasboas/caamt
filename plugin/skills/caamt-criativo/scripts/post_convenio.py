@@ -17,7 +17,7 @@ config.json (caminhos relativos ao próprio .json):
   "saida": "post_convenio-disponivel_<parceiro>_v1.jpg"
 }
 "cores" e "modelo" vêm do MARCA.md da subseção. O padrão de cores e o modelo que vêm no kit
-são os da Subseção de Barra do Garças (Canva da Delegada, 04/11/2026): outra subseção usa os
+são os do modelo de post da Subseção de Barra do Garças: outra subseção usa os
 seus. O logo do parceiro entra como arquivo (versão branca), nunca desenhado.
 """
 import json

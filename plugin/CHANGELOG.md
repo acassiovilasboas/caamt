@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.0.2 (06/11/2026)
+- Nova skill `caamt-planilha`: única dona da planilha "CAAMT – <Subseção>". Ela nasce na conversa,
+  quando for útil, com a pergunta Drive ou computador nesse momento. Abas: Linha editorial,
+  Cronograma, Pautas, Parceiros, Config, Histórico. Modo computador com `planilha_local.py`
+  (grava só as células citadas, registra o Histórico e gera `planilha/ver.html`).
+- Linha editorial vira aba da planilha, com Frequência (fixa ou por demanda; convênio
+  disponível é por demanda) e Origem de cada tema.
+- Primeira conversa sem menu: cumprimenta, mostra o que achou e oferece um passo concreto.
+- Todo arquivo para a pessoa ler sai em HTML (`md_para_html.py`).
+- Sem resto de palestra, testes ou outros projetos no kit.
+
 ## 1.0.1 (05/11/2026)
 Correções da revisão de três subagentes: scripts, aderência ao pedido e questionador.
 - Agentes de vídeo leem `memoria/regras.md`: a regra do usuário chega a eles.

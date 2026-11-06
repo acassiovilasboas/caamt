@@ -21,11 +21,13 @@ questionário**. O resto se aprende no uso (skill `caamt-memoria`).
    pasta com a linha: "Antes de qualquer tarefa, ler `memoria/regras.md` e `memoria/perfil.md`
    (kit CAAMT). Regra do usuário vale mais que o kit." Artes achadas
    (logo, moldura, rodapé) entram como "a confirmar" no perfil; não usar sem confirmar.
-5. **Começar a linha editorial** (skill `caamt-linha-editorial`, "Primeiro rascunho"): rápido,
+5. **Propor a linha editorial** (skill `caamt-linha-editorial`, "Primeira proposta"): rápido,
    sem agente. É o primeiro trabalho, sem esperar pedido.
-6. **Responder em até 8 linhas**: o que entendi (nome, subseção, perfis); o que achei na
-   pasta; o rascunho da linha editorial; e "o que quer fazer primeiro: vídeo, post,
-   parceiro ou cronograma?".
+6. **Responder como numa conversa**, em poucas linhas: cumprimentar pelo nome, contar o que
+   achou (perfil da subseção, o que já existe na pasta), mostrar os temas propostos e oferecer
+   um passo concreto ("Quer que eu monte as postagens das próximas duas semanas?"). Sem menu
+   de opções, sem lista de recursos do kit. Se a mensagem dela já trouxe um pedido (um vídeo,
+   um parceiro), atender o pedido primeiro e deixar a linha editorial para depois.
 
 Não perguntar agora: onde guardar arquivos, artes, computador, Colab, conta Google. Cada
 coisa é perguntada na primeira tarefa que precisar dela.
