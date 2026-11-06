@@ -1,6 +1,8 @@
 # Changelog
 
 ## 1.0.7 (06/11/2026)
+- Sem painel: a skill `caamt-painel` saiu. A pessoa conversa com o Claude e, quando quiser,
+  consulta a planilha, que precisa ser fácil de ler por gente.
 - Fontes de pauta: 26 sites jurídicos (OAB, CAAMT, tribunais e órgãos de MT, tribunais superiores,
   portais de notícia), em `caamt-cronograma/referencias/fontes.md`.
 - Sugestão de post vinda de pauta sempre com link validado pelo Claude, a mais recente primeiro.
