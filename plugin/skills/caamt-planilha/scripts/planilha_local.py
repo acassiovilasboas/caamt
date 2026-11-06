@@ -166,7 +166,7 @@ def mudar(pasta, aba, chave, dados, quem):
             mud.append((cab[i], linha[i], v))
             linha[i] = v
     e, d = achar(cab, "Etapa"), achar(cab, "Na etapa desde")
-    if (aba == "parceiros" and e is not None and d is not None and any(m[0] == cab[e] for m in mud)
+    if (aba == "parceiros" and e is not None and d is not None and any(m[0] == cab[e] and norm(m[1]) != norm(m[2]) for m in mud)
             and not any(norm(k) == norm(cab[d]) for k in dados) and linha[d] != hoje()):
         mud.append((cab[d], linha[d], hoje()))
         linha[d] = hoje()

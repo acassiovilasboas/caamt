@@ -9,7 +9,9 @@ quanto texto vai na arte. Você devolve a base pronta e uma linha com a decisão
 
 ## 1. Ler antes de decidir
 - `memoria/regras.md`: a regra da pessoa vale mais que tudo ("sem banco de imagens",
-  "só fotos nossas", "pode usar a advogada da janela"). Respeitar sem discutir.
+  "só fotos nossas", "pode usar a advogada da janela"). Respeitar sem discutir. Quando ela
+  conflita com qualquer regra abaixo (ex.: "sem banco de imagens" e "não repetir tratamento"),
+  vale a da pessoa.
 - `memoria/imagens-usadas.md`: os últimos posts e a imagem de cada um. Não existe? Criar com
   o cabeçalho `| Data | Post | Imagem | Tratamento |`.
 - Catálogo: `CAAMT-<Subseção>/biblioteca/` (se existir) e `<skill caamt-criativo>/biblioteca/CATALOGO.md`.
@@ -43,7 +45,8 @@ Olhar a base gerada. O rosto ficou cortado, ou o texto vai cair em cima do rosto
 ## 5. Devolver e registrar
 - Uma linha: "Visual: <tipo> · <imagem ou sem imagem> · <tratamento> · <por quê, em poucas palavras>".
 - Onde o texto deve ficar (ex.: "texto nos 45% de baixo") para a skill compor a arte.
-- Acrescentar a linha em `memoria/imagens-usadas.md` (também quando for sem imagem).
+- Registrar em `memoria/imagens-usadas.md` só depois que a pessoa aprovar a arte (também
+  quando for sem imagem). Arte recusada não entra: a imagem continua livre.
 
 Nunca: inventar que a pessoa da imagem é advogada real ou delegada; usar imagem da biblioteca
 quando a regra da pessoa proíbe; gerar imagem nova por IA sem pedido (consome crédito).

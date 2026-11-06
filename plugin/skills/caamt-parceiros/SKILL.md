@@ -19,7 +19,7 @@ gravar a planilha: skill `caamt-planilha`. Pastas: skill `caamt-arquivos`.
 | "Chegou o CNPJ da X" | Marcar "recebido <data>" (falta conferir), recalcular "Falta"; oferecer a conferência |
 | "Os documentos da X estão ok?" | Skill `caamt-documentos` |
 | "Quem está pendente?" | Conferir planilha × pastas (abaixo); depois a tabela curta: parceiro, etapa, falta, dias parado (do mais atrasado) |
-| "Cobra a X" | Mensagem no nível certo: contar no Histórico as mudanças de "Última cobrança" desde "Na etapa desde" (0 = 1ª, 1 = lembrete, 2 ou mais = última); anotar a data e a próxima |
+| "Cobra a X" | Mensagem no nível certo: contar no Histórico as mudanças de "Última cobrança" desde "Na etapa desde" (0 = 1ª, 1 = lembrete, 2 ou mais = última). Histórico sem cobrança mas "Última cobrança" preenchida (planilha antiga), ou coluna antiga "Nível da cobrança": não presumir a 1ª; usar o nível antigo ou perguntar qual foi a última mensagem. Anotar a data e a próxima |
 | "Retomar quem não fechou" | Quem está em "Não fechou" ou parado há mais de 30 dias: uma retomada para cada |
 | "Foi aprovado" / "já postei" | Mudar a Etapa; em Aprovado, oferecer o post (`caamt-criativo` + `caamt-legenda`) |
 | "Resumo da semana" | Parceiros por etapa, o que andou em 7 dias, as 3 próximas ações |

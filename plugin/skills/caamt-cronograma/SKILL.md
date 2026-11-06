@@ -29,8 +29,8 @@ Ler e gravar sempre pela skill `caamt-planilha`. A planilha não existe ainda: e
   (Drive ou computador). Arte na pasta e Status "ideia", ou Status "pronto" sem arte: mostrar e
   propor a correção (regra 4 de `caamt-memoria`).
 - A pessoa muda a planilha à mão: respeitar. Pede pelo chat: mudar só o pedido.
-- O Claude percebe (post publicado, evento novo, data passada sem post): atualizar o Status ou
-  sugerir a troca e avisar em uma linha.
+- O Claude percebe (post publicado, evento novo, data passada sem post): mostrar a mudança
+  proposta e gravar só com o OK (regra 4 de `caamt-memoria`).
 - Formato é sugestão: "não quero gravar vídeo" vira post de texto com foto de fundo
   (skill `caamt-criativo`).
 

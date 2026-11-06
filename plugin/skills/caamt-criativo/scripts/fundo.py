@@ -20,7 +20,13 @@ from PIL import Image, ImageFilter, ImageOps
 
 
 def cor(h):
-    h = h.lstrip("#")
+    import re
+    m = re.search(r"#?([0-9a-fA-F]{6}|[0-9a-fA-F]{3})", h or "")
+    if not m:
+        raise SystemExit("Cor inválida: %r (use #RRGGBB ou #RGB)" % h)
+    h = m.group(1)
+    if len(h) == 3:
+        h = "".join(c * 2 for c in h)
     return tuple(int(h[i:i + 2], 16) for i in (0, 2, 4))
 
 
@@ -62,7 +68,7 @@ def main():
     w, h = (int(v) for v in o.tam.split("x"))
     fx, fy = (float(v) for v in o.foco.split(","))
     base = cor(o.cor)
-    im = cortar(Image.open(o.foto).convert("RGB"), w, h, fx, fy)
+    im = cortar(ImageOps.exif_transpose(Image.open(o.foto)).convert("RGB"), w, h, fx, fy)
     plano = Image.new("RGB", (w, h), base)
 
     if o.modo == "limpo":

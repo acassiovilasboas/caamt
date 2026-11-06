@@ -18,11 +18,12 @@ description: "Faz a arte pronta para postar (o \"criativo\") da subseção da CA
 4. **Tipos:**
    - **Convênio Disponível** (foto com a placa): preencher um `config.json` e rodar
      `python <skill>/scripts/post_convenio.py config.json` (campos no topo do script).
-   - **Texto sobre foto de fundo** (ex.: foto da sede da OAB da cidade): foto da pasta
-     `coringa/`, da pessoa ou de fonte oficial com crédito; texto curto, rodapé da subseção.
+   - **Texto sobre foto de fundo** (ex.: foto da sede da OAB da cidade): a base sai do passo 3
+     (`diretor-de-arte` + `fundo.py`), com foto da pasta `coringa/`, da pessoa, de fonte oficial
+     com crédito ou da biblioteca; texto curto, rodapé da subseção.
    - **Lembrete de parceiros ativos:** logos e descontos dos parceiros com Etapa
      "Divulgado" na planilha.
-   Para os dois últimos, adaptar o `post_convenio.py` (mesmo tamanho 1080x1350 e rodapé),
+   Para o lembrete, adaptar o `post_convenio.py` (mesmo tamanho 1080x1350 e rodapé),
    copiando-o para a pasta do post. Gerador de imagem por IA só com pedido: consome crédito.
 5. **Salvar** em `publicacoes/<AAAA-MM-DD>_<tema>/` com o `config.json` e a fonte das
    fotos. Mostrar a arte. Com o OK, subir (skill `caamt-arquivos`) e pôr o link na linha do
