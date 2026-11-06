@@ -21,6 +21,10 @@ description: "Faz a arte pronta para postar (o \"criativo\") da subseção da CA
    - **Texto sobre foto de fundo** (ex.: foto da sede da OAB da cidade): a base sai do passo 3
      (`diretor-de-arte` + `fundo.py`), com foto da pasta `coringa/`, da pessoa, de fonte oficial
      com crédito ou da biblioteca; texto curto, rodapé da subseção.
+   - **Carrossel** (3 a 7 telas 1080x1350): capa com título curto, uma ideia por tela, tela
+     final com chamada. Usos: benefício da CAAMT em passos, alerta de golpe (como reconhecer e o
+     que fazer), resumo da Quarta de Lei. Texto conferido com a pauta da aba Pautas. Montar com
+     `python <skill>/scripts/carrossel.py telas.json` (campos no topo do script).
    - **Lembrete de parceiros ativos:** logos e descontos dos parceiros com Etapa
      "Divulgado" na planilha.
    Para o lembrete, adaptar o `post_convenio.py` (mesmo tamanho 1080x1350 e rodapé),

@@ -13,7 +13,10 @@ Ler e gravar sempre pela skill `caamt-planilha`. A planilha não existe ainda: e
 
 ## Montar ou estender
 1. Ler a aba Linha editorial, a aba Cronograma (o que já existe) e `memoria/` (rotina: dias e
-   horários em que a pessoa posta).
+   horários em que a pessoa posta). Sem rotina no perfil: propor a semana de
+   `referencias/rotina.md` como sugestão, em poucas linhas; gravar a que ela aceitar ou disser.
+   A sugestão não vira linha na planilha antes do sim.
+   Datas comemorativas do período (`referencias/datas.md`) entram como tema por demanda.
 2. Eventos: os que a pessoa contar e os vistos nos perfis públicos (agente `perfis-instagram`).
    Cada evento ganha posts **antes** (convite), **no dia** (Stories) e **depois** (cortes, fotos).
 3. Pautas de fora (segurança na advocacia, lei nova, jurisprudência, benefício da CAAMT):
@@ -23,6 +26,10 @@ Ler e gravar sempre pela skill `caamt-planilha`. A planilha não existe ainda: e
    conferir antes. Sem link validado, não entra.
 4. Gravar só as linhas novas ou as células que mudaram. Mostrar as próximas 2 semanas numa
    tabela curta.
+
+**"Planeje o mês":** cruzar a rotina, as datas comemorativas do mês, os convênios aprovados e as
+pautas recentes; mostrar o mês numa tabela; com o OK, preencher o Cronograma e oferecer as
+artes (skill `caamt-criativo`), uma por vez ou todas.
 
 ## Atualizar
 - Antes de dizer o que está pronto ou faltando: conferir cada linha com `publicacoes/<data>_<tema>/`

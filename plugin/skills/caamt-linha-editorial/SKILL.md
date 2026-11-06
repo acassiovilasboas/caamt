@@ -21,8 +21,10 @@ Não inventar frequência: vem do que a pessoa disser ou do que foi medido nos p
    comecei por temas comuns").
 2. Temas de partida (vistos em perfis de subseções da OAB-MT): convênio disponível (por
    demanda), alerta de golpe contra a advocacia (ex.: falso advogado), chamada para as comissões
-   temáticas, eventos da subseção, encontros temáticos (ex.: "Quarta de Lei", no @oab_bg),
-   benefícios da CAAMT. Frequência em branco até a pessoa dizer ou a medição mostrar.
+   temáticas, eventos da subseção, benefícios da CAAMT, Quarta de Lei (toda quarta; é o quadro
+   do @oab_bg, e outra subseção usa o encontro temático dela) e datas comemorativas (por demanda,
+   lista em `caamt-cronograma/referencias/datas.md`). Frequência em branco até a pessoa dizer ou a
+   medição mostrar, exceto as que já vêm definidas aqui.
 3. Mostrar 3 a 5 temas na conversa, em linguagem simples, e propor o passo seguinte natural
    ("Quer que eu monte as postagens das próximas duas semanas com esses temas?"). Se não souber
    quantas vezes por semana ela posta, perguntar só isso, nesse momento.
