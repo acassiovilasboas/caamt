@@ -8,20 +8,20 @@ JSON de entrada:
 {
   "titulo": "Vídeos · Projeto",
   "abas": [
-    {"nome": "Criativos prontos",
+    {"nome": "Vídeos prontos",
      "grupos": [
-       {"nome": "Topo do funil", "nota": "texto curto opcional",
+       {"nome": "<parceiro>", "nota": "texto curto opcional",
         "subgrupos": [
-          {"nome": "O que eu faria toda semana", "nota": "...",
+          {"nome": "<versão>", "nota": "...",
            "itens": [
              {"id": "único", "titulo": "Versão base", "detalhe": "o que muda",
               "video": "caminho relativo ao HTML", "poster": "jpg relativo (opcional)",
               "original": "caminho do arquivo original", "etiquetas": ["revisado", "38 s"],
               "situacao": "ok|pendente|nao|antigo",
-              "fps": 30, "meta": [["Exercício", "..."], ["Melhores trechos", "..."]]}]}]}]}]}
+              "fps": 30, "meta": [["Melhores trechos", "..."]]}]}]}]}]}
 
 Opcionais por item: "situacao_texto" troca o rótulo da situação mantendo a cor (ex.: "no ar",
-"pausado", "não subido", para aba de campanha); "link" põe um botão que abre a publicação
+"publicado", "não publicado"); "link" põe um botão que abre a publicação
 original (texto em "link_texto", padrão "Abrir no Instagram"), junto do vídeo local. Sem vídeo
 local: "embed" (ex.: https://www.instagram.com/reel/<código>/embed/) toca dentro de um iframe;
 sem os dois, "poster" vira imagem que abre o link.
@@ -54,7 +54,7 @@ padding:6px 12px;border-radius:999px;margin:0 4px 4px 0;cursor:pointer}nav butto
 main{padding:12px 16px 60px}section.g>h2{font-size:17px;margin:22px 0 4px}section.g>p,.sg>p{color:var(--mu);margin:0 0 8px;font-size:14px}
 .sg>h3{font-size:15px;margin:14px 0 6px}.grade{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
 .c{background:var(--card);border:1px solid var(--ln);border-radius:10px;padding:8px;font-size:13px}
-.c video{width:100%;aspect-ratio:9/16;background:#000;border-radius:6px}.c b{display:block;margin:6px 0 2px;font-size:14px}
+.c video{width:100%;aspect-ratio:9/16;background:#000;border-radius:6px}.barra{display:flex;gap:6px;align-items:center;margin-top:6px}.barra button{font:inherit;font-size:14px;padding:6px 10px;border-radius:6px;border:1px solid #888;background:#fff;cursor:pointer}.barra button:active{transform:scale(.95)}.barra .pos{flex:1}.barra .tempo{font-size:13px;min-width:3.2em;text-align:right}.c b{display:block;margin:6px 0 2px;font-size:14px}
 .c .d{color:var(--mu);margin:2px 0}.pill{display:inline-block;padding:1px 8px;border-radius:999px;font-size:11px;margin:2px 2px 0 0;border:1px solid var(--ln)}
 .sit{color:#fff;border:0}.c textarea{width:100%;height:38px;margin-top:4px;font:inherit;background:var(--bg);color:var(--tx);border:1px solid var(--ln);border-radius:6px}
 .c code{font-size:11px;word-break:break-all;color:var(--mu);cursor:copy}.oculto{display:none}
@@ -100,6 +100,11 @@ function ir(h){if(!h)return;let el=null;try{el=document.getElementById(decodeURI
 const b=document.getElementById('busca');if(b.value){b.value='';buscar()}
 const ab=[...document.querySelectorAll('.aba')].indexOf(el.closest('.aba'));if(ab>=0)aba(ab);
 document.querySelectorAll('.alvo').forEach(x=>x.classList.remove('alvo'));el.classList.add('alvo');setTimeout(()=>el.scrollIntoView({block:'start'}),0)}
+const mmss=t=>{t=Math.floor(t||0);return Math.floor(t/60)+':'+String(t%60).padStart(2,'0')};
+document.querySelectorAll('video.vc').forEach(v=>{const b=v.nextElementSibling,tp=b.querySelector('.tp'),pos=b.querySelector('.pos'),tm=b.querySelector('.tempo');
+const at=()=>{tp.textContent=v.paused?'▶ Tocar':'❚❚ Pausar';if(v.duration)pos.value=v.currentTime/v.duration*1000;tm.textContent=mmss(v.currentTime)+(v.duration?' / '+mmss(v.duration):'')};
+tp.onclick=()=>v.paused?v.play():v.pause();v.onclick=tp.onclick;['play','pause','timeupdate','loadedmetadata'].forEach(ev=>v.addEventListener(ev,at));
+pos.oninput=()=>{if(v.duration)v.currentTime=pos.value/1000*v.duration};b.querySelector('.cheia').onclick=()=>(v.requestFullscreen||v.webkitRequestFullscreen).call(v)});
 window.addEventListener('hashchange',()=>ir(location.hash.slice(1)));ir(location.hash.slice(1));
 let cur=null,fps=30;const mv=document.getElementById('mv'),tl=document.getElementById('tl');
 function fmt(t){t=t||0;const m=Math.floor(t/60),s=t-m*60;return m+':'+(s<10?'0':'')+s.toFixed(3)}
@@ -170,7 +175,10 @@ def card(it, ctx=""):
     link_txt = e(it.get("link_texto") or "Abrir no Instagram")
     link = f'<a class="abrir" href="{e(it["link"])}" target="_blank" rel="noopener">{link_txt}</a>' if it.get("link") else ""
     if it.get("video"):
-        midia = f'<video controls preload="none" src="{e(it["video"])}"{poster}></video>'
+        midia = (f'<video class="vc" preload="metadata" playsinline src="{e(it["video"])}"{poster}></video>'
+                 '<div class="barra"><button type="button" class="tp">▶ Tocar</button>'
+                 '<input type="range" class="pos" min="0" max="1000" value="0" aria-label="posição do vídeo">'
+                 '<span class="tempo">0:00</span><button type="button" class="cheia">Tela cheia</button></div>')
         botao = '<button class="abrir" onclick="abrir(this.closest(&quot;.c&quot;).dataset.id)">Abrir quadro a quadro</button>' + link
     elif it.get("embed"):
         midia = f'<iframe class="lk" src="{e(it["embed"])}" loading="lazy" allowfullscreen></iframe>'
@@ -218,7 +226,7 @@ def main(entrada, saida):
         corpo.append("".join(partes))
     doc = (f'<!doctype html><html lang="pt-BR"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
            f'<title>{e(d["titulo"])}</title><style>{CSS}</style><header><h1>{e(d["titulo"])}</h1><nav>{"".join(nav)}</nav>'
-           f'<div class="barra"><input id="busca" placeholder="buscar: vídeo, campanha, conjunto (ex.: OF-03, CV1, oferta)"><button onclick="copiar()">Copiar marcados e anotações</button>'
+           f'<div class="barra"><input id="busca" placeholder="buscar vídeo ou parceiro"><button onclick="copiar()">Copiar marcados e anotações</button>'
            f'<small id="st"></small><small>{e(d.get("nota"))}</small></div></header><main>{"".join(corpo)}</main>{MODAL}<script>{JS}</script></html>')
     open(saida, "w", encoding="utf-8").write(doc)
     n = sum(len(sg["itens"]) for ab in d["abas"] for g in ab["grupos"] for sg in g["subgrupos"])

@@ -6,10 +6,14 @@ tools: WebSearch, WebFetch, Read
 
 Você recebe: tema, cidade/região e quantas pautas.
 
-1. Fontes nesta ordem: sites oficiais (oab.org.br, oabmt.org.br, caamt.com.br, tribunais,
-   planalto.gov.br, cnj.jus.br), depois imprensa conhecida. Sem fonte confiável, não há pauta.
-2. Abrir a página e confirmar o fato e a data. Notícia antiga (> 60 dias) só se for regra que
-   ainda vale.
-3. Devolver uma tabela `Título curto | Resumo (2 linhas) | Fonte (URL) | Data da fonte |
-   Por que serve à subseção`. Até 10 linhas, sem texto fora da tabela.
+1. Fontes: a lista de `caamt-cronograma/referencias/fontes.md` primeiro (e as que estiverem em
+   `memoria/regras.md`); depois imprensa conhecida. Sem fonte confiável, não há pauta.
+2. **Mais recente primeiro:** últimos 30 dias; até 60 dias se faltar. Mais antigo, só se for
+   regra que ainda vale.
+3. **Validar cada link:** abrir a página, conferir que ela carrega, que o fato e a data estão
+   nela e que o link aponta para a notícia (não para a página inicial). Link que não abriu ou
+   não confirma o fato: descartar.
+4. Devolver uma tabela `Título curto | Resumo (2 linhas) | Link validado | Data da notícia |
+   Por que serve à subseção`, da mais recente para a mais antiga. Até 10 linhas, sem texto fora
+   da tabela.
 Não escrever legenda nem post: só a pauta.

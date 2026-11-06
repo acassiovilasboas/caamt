@@ -29,7 +29,7 @@ Não inventar frequência: vem do que a pessoa disser ou do que foi medido nos p
 4. Quando a pessoa topar (ou pedir o cronograma): `caamt-planilha` cria a planilha e grava a
    aba Linha editorial antes do Cronograma.
 
-O que foi lido nos perfis serve só para o Claude decidir. **Nunca vai para a planilha, o painel
+O que foi lido nos perfis serve só para o Claude decidir. **Nunca vai para a planilha
 ou uma página**: nada de lista de perfis consultados, link de post de exemplo ou "visto em".
 
 ## Análise ampla

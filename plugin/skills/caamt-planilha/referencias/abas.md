@@ -9,7 +9,7 @@ pessoa dizer ou os posts mostrarem.
 
 ## Cronograma
 Uma linha por post. **Status**: ideia, pronto, publicado. **Tema** vem da aba Linha editorial.
-**Arte (link)**: link do Drive ou caminho do arquivo (botão "Abrir arte"). **Evento na
+**Arte (link)**: link do Drive ou caminho do arquivo. **Evento na
 agenda**: id do evento do lembrete do post. **Fonte**: de onde veio a informação do post.
 
 ## Pautas
@@ -22,8 +22,8 @@ conferir; "ok 06/11" = conferido e válido; "problema: vencido" = conferido com 
 curto, sem dado pessoal); "não se aplica" quando é do outro tipo (PJ/PF). **Responsável**: nome de quem
 responde pelo parceiro, usado nas mensagens. **Falta**: texto curto ("alvará, logo"), com o que
 está vazio ou com problema, atualizado a cada documento. **Nível da cobrança**: vazio, 1, 2 ou 3 (1ª, lembrete,
-última). **Próxima mensagem**: o rascunho pronto para copiar (vira o botão WhatsApp do painel).
-**Pasta (link)**: link da pasta do parceiro no Drive ou caminho no computador (botão "Abrir pasta").
+última). **Próxima mensagem**: o rascunho pronto para copiar e mandar no WhatsApp.
+**Pasta (link)**: link da pasta do parceiro no Drive ou caminho no computador.
 **Evento na agenda**: id do evento criado pela skill `caamt-agenda` (evita evento duplicado). Achar a linha pelo nome, sem
 diferenciar maiúsculas nem acento; dois parecidos: perguntar qual. Etapas em
 `caamt-parceiros/referencias/regras-caixa.md`.

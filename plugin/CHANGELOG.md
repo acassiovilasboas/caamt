@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.0.7 (06/11/2026)
+- Fontes de pauta: 26 sites jurídicos (OAB, CAAMT, tribunais e órgãos de MT, tribunais superiores,
+  portais de notícia), em `caamt-cronograma/referencias/fontes.md`.
+- Sugestão de post vinda de pauta sempre com link validado pelo Claude, a mais recente primeiro.
+- Página de vídeos: controles embaixo do vídeo (tocar/pausar, posição, tempo, tela cheia); sem
+  resto de outro projeto no texto da busca.
+- Imagem e PDF até 10 MB sobem ao Drive pela extensão Claude no Chrome (testado em 06/11/2026),
+  com conferência da pasta pelo conector.
+
 ## 1.0.6 (06/11/2026)
 - Painel refeito, tema escuro (Inter; azul #7C9CFF, lilás #B39CFF, âmbar #E8B45A). Abas Tarefas,
   Postagens, Parceiros, Temas e Pautas; itens abrem e fecham; botões grandes com resposta ao toque

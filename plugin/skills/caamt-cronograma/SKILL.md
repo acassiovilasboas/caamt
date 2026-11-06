@@ -17,8 +17,10 @@ Ler e gravar sempre pela skill `caamt-planilha`. A planilha não existe ainda: e
 2. Eventos: os que a pessoa contar e os vistos nos perfis públicos (agente `perfis-instagram`).
    Cada evento ganha posts **antes** (convite), **no dia** (Stories) e **depois** (cortes, fotos).
 3. Pautas de fora (segurança na advocacia, lei nova, jurisprudência, benefício da CAAMT):
-   agente `pauta-pesquisador`, que devolve título, resumo e fonte. Cada pauta vira uma linha na
-   aba Pautas (`Data | Tema | Título | Fonte | Resumo | Usada em`). Sem fonte, não entra.
+   agente `pauta-pesquisador` (fontes em `referencias/fontes.md`, a mais recente primeiro). Cada
+   pauta vira uma linha na aba Pautas (`Data | Tema | Título | Fonte | Resumo | Usada em`).
+   **Toda sugestão de post vinda de pauta é mostrada com o link validado**, para a pessoa
+   conferir antes. Sem link validado, não entra.
 4. Gravar só as linhas novas ou as células que mudaram. Mostrar as próximas 2 semanas numa
    tabela curta.
 

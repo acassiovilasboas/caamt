@@ -25,20 +25,24 @@ Toda leitura e gravação passa pela skill `caamt-planilha` (Drive ou `planilha/
 
 ## Mandar arquivo para o Drive (o Claude faz)
 1. **Texto, planilha, Markdown**: pelo conector do Google Drive (`create_file`).
-2. **Vídeo, imagem, PDF**: o conector não serve (o arquivo teria de passar inteiro pela
-   conversa, e arquivo grande não passa). Usar o script, que fala
-   direto com o Google:
+2. **Imagem e PDF até 10 MB, com a extensão Claude no Chrome:** abrir no Chrome a pasta de
+   destino do Drive, criar um campo de arquivo na página, pôr o arquivo nele (`file_upload`) e
+   soltá-lo na área vazia da lista. Nunca soltar em cima de uma pasta da lista: o arquivo cai
+   dentro dela. Depois, conferir pelo conector que o arquivo está na pasta certa e com o mesmo
+   tamanho. Errou a pasta? Mover para a certa e avisar.
+3. **Vídeo, ou sem a extensão:** o conector não serve (o arquivo teria de passar inteiro pela
+   conversa). Usar o script, que fala direto com o Google:
    `python <skill>/scripts/drive_upload.py enviar <arquivo> --pasta "CAAMT-<Subseção>/<subpasta>"`
    Ele cria as pastas que faltam, não sobe duas vezes o mesmo arquivo e imprime o link.
-3. `login` espera a pessoa no navegador por até 5 min: rodar em segundo plano ou com tempo
+4. `login` espera a pessoa no navegador por até 5 min: rodar em segundo plano ou com tempo
    limite de 10 min. `drive_upload.py status` diz se já está configurado. Não está: mostrar
    `referencias/permissoes-google.md` (10 minutos, uma vez) e, até lá, guardar local e anotar
    em `memoria/pendencias.md` o que falta subir.
-4. **Pastas no Drive: só o script cria** (`drive_upload.py pasta "<caminho>"`); o conector nunca cria
+5. **Pastas no Drive: só o script cria** (`drive_upload.py pasta "<caminho>"`); o conector nunca cria
    pasta, só arquivo de texto dentro de pasta já criada (pelo id). Com a permissão `drive.file`, o script só enxerga as pastas que **ele** criou.
    No modo Drive, a pasta `CAAMT-<Subseção>` é criada pelo script (`drive_upload.py pasta
    "CAAMT-<Subseção>"`), e o id vai para o perfil. O conector acha tudo pelo id.
-5. Documento que chega no WhatsApp: no celular, Compartilhar › Drive › pasta do parceiro.
+6. Documento que chega no WhatsApp: no celular, Compartilhar › Drive › pasta do parceiro.
 
 ## Nunca
 Apagar arquivo, mudar compartilhamento ou deixar pasta pública sem pedido.

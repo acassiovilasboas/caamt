@@ -5,7 +5,8 @@ description: "Única dona da planilha de trabalho da subseção (abas Linha edit
 
 # Planilha da subseção
 
-A planilha é a memória e o banco de dados do Claude. A pessoa vê no navegador (skill `caamt-painel`).
+A planilha é a memória e o banco de dados do Claude. A pessoa conversa com o Claude e, quando quiser,
+abre a planilha para consultar: ela precisa ser fácil de ler por gente.
 Nome: **"CAAMT – <Subseção>"**. Colunas de cada aba: `python <skill>/scripts/planilha_local.py colunas`
 (vale para o Drive e para o computador). Significado das colunas: `referencias/abas.md`.
 
@@ -21,11 +22,10 @@ existe. Não criar "por garantia".
    Drive (CSV com o cabeçalho da primeira aba, `text/csv`, convertido em planilha), dentro da
    pasta `CAAMT-<Subseção>` se o script de upload já a criou, senão em Meu Drive. Adicionar as
    outras abas pelo conector do Sheets e gravar os cabeçalhos. Ler de volta para conferir.
-   Guardar o id no perfil e o link na aba Config.
+   Guardar o id no perfil e o link na aba Config. Ao terminar, mandar o link da planilha.
 3. **Computador**, ou Drive sem o conector do Sheets: `planilha_local.py criar <pasta CAAMT>`.
    No segundo caso, dizer em uma linha: "Liguei a planilha aqui no computador porque o conector do
    Google Sheets não está ativo; quando ligar, eu passo para o Drive."
-4. Mostrar o painel (skill `caamt-painel`).
 
 ## Gravar (todas as skills passam por aqui)
 - Ler antes. Gravar **só as células que mudaram**; linha nova vai no fim. Nunca regravar a
@@ -41,6 +41,5 @@ existe. Não criar "por garantia".
   Faltou um dado (telefone, data, link da pasta)? Perguntar à pessoa antes; sem resposta, a
   célula fica vazia.
 - Data com prazo (próxima ação, data do post): avisar a agenda (skill `caamt-agenda`).
-- Depois de gravar: atualizar o painel (skill `caamt-painel`).
 - Nada de CPF, RG ou número de documento em nenhuma aba.
 

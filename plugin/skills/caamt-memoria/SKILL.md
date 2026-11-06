@@ -43,7 +43,7 @@ Gerar de novo. Na resposta, dar o caminho do `.html`, nunca o do `.md`. Arquivos
 memória, gerar a página na hora.
 
 ## Só conteúdo nos documentos da pessoa
-Planilha, painel e páginas mostram só o conteúdo. Nunca de onde veio cada item, quem sugeriu,
+Planilha e páginas mostram só o conteúdo. Nunca de onde veio cada item, quem sugeriu,
 data de consulta, "sugestão", "a confirmar" ou qualquer nota sobre o próprio documento.
 
 ## Nome e cargo (padrão; o usuário pode mudar)
