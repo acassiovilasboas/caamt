@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-"""Planilha de trabalho da subseção no modo local (um CSV por aba) e as colunas de cada aba.
+"""Planilha de trabalho da subseção no computador (planilha/planilha.xlsx, uma aba por assunto) e as colunas.
 
   python planilha_local.py colunas [<aba>]                 # cabeçalhos (vale também para o Drive)
-  python planilha_local.py criar <pasta>                    # cria <pasta>/planilha/*.csv que faltarem
+  python planilha_local.py criar <pasta>                    # cria ou atualiza <pasta>/planilha/planilha.xlsx
   python planilha_local.py ler <pasta> <aba> [--busca txt]
   python planilha_local.py nova <pasta> <aba> "Coluna=valor" ...      # acrescenta uma linha
   python planilha_local.py mudar <pasta> <aba> <chave> "Coluna=valor" ... [--quem usuário|Claude]
@@ -13,7 +13,6 @@ maiúsculas nem acento. "mudar" grava só as células citadas, mantém o resto c
 """
 import csv
 import datetime
-import html
 import os
 import sys
 import unicodedata
@@ -56,27 +55,106 @@ def aba_de(nome):
     sair("Aba desconhecida: %s. Abas: %s" % (nome, ", ".join(NOMES.values())))
 
 
-def arq(pasta, aba):
+LINKS = {"Pasta (link)": "Abrir pasta", "Arte (link)": "Abrir arte", "Fonte": "Abrir fonte"}
+DATAS = {"Data", "Data da próxima ação", "Última cobrança", "Atualizado em", "Na etapa desde", "Usada em"}
+
+
+def arquivo(pasta):
+    return os.path.join(pasta, "planilha", "planilha.xlsx")
+
+
+def csv_antigo(pasta, aba):
     return os.path.join(pasta, "planilha", aba + ".csv")
 
 
-def ler(pasta, aba):
-    p = arq(pasta, aba)
+def abrir(pasta):
+    try:
+        from openpyxl import load_workbook
+    except ImportError:
+        sair("Falta o openpyxl (gratuito): pip install openpyxl")
+    p = arquivo(pasta)
     if not os.path.exists(p):
         sair("Falta a planilha local. Rode: planilha_local.py criar " + pasta)
-    with open(p, encoding="utf-8-sig", newline="") as f:
-        linhas = list(csv.reader(f))
-    return (linhas[0] if linhas else list(ABAS[aba])), linhas[1:]
+    return load_workbook(p)
 
 
-def gravar(pasta, aba, cab, linhas):
-    p = arq(pasta, aba)
-    tmp = p + ".tmp"
-    with open(tmp, "w", encoding="utf-8-sig", newline="") as f:
-        w = csv.writer(f)
-        w.writerow(cab)
-        w.writerows(linhas)
-    os.replace(tmp, p)
+def texto(cel):
+    if cel.hyperlink is not None and cel.hyperlink.target:
+        t = cel.hyperlink.target
+        return t[8:] if t.startswith("file:///") else t
+    v = cel.value
+    if v is None:
+        return ""
+    if isinstance(v, (datetime.datetime, datetime.date)):
+        return v.strftime("%d/%m/%Y")
+    if isinstance(v, float) and v.is_integer():
+        return str(int(v))
+    return str(v)
+
+
+def ler(pasta, aba, wb=None):
+    wb = wb or abrir(pasta)
+    if NOMES[aba] not in wb.sheetnames:
+        sair("A planilha não tem a aba %s. Rode: planilha_local.py criar %s" % (NOMES[aba], pasta))
+    ws = wb[NOMES[aba]]
+    linhas = [[texto(c) for c in r] for r in ws.iter_rows()]
+    cab = [c for c in (linhas[0] if linhas else [])]
+    while cab and not cab[-1]:
+        cab.pop()
+    corpo = [(l + [""] * len(cab))[:len(cab)] for l in linhas[1:]]  # linha vazia no meio fica no lugar
+    while corpo and not any(x.strip() for x in corpo[-1]):
+        corpo.pop()
+    return (cab or list(ABAS[aba])), corpo
+
+
+def para_data(v):
+    for f in ("%d/%m/%Y", "%Y-%m-%d"):
+        try:
+            return datetime.datetime.strptime(v.strip(), f).date()
+        except (ValueError, AttributeError):
+            pass
+    return None
+
+
+def por(cel, col, v):
+    from openpyxl.styles import Font
+    v = v or ""
+    if col in LINKS and v.strip():
+        alvo = v if "://" in v else "file:///" + v.replace("\\", "/")
+        cel.value = LINKS[col] if col != "Fonte" else (v.split("/")[2].replace("www.", "") if "://" in v else LINKS[col])
+        cel.hyperlink = alvo
+        cel.font = Font(size=11, color="1F5FD6", underline="single")
+        return
+    cel.hyperlink = None
+    d = para_data(v) if col in DATAS else None
+    if d:
+        cel.value, cel.number_format = d, "DD/MM/YYYY"
+    else:
+        cel.value = v if v != "" else None
+
+
+def salvar(wb, pasta):
+    p = arquivo(pasta)
+    tmp = p + ".tmp.xlsx"
+    wb.save(tmp)
+    try:
+        os.replace(tmp, p)
+    except PermissionError:
+        os.remove(tmp)
+        sair("A planilha está aberta no Excel. Feche e rode de novo.")
+
+
+def gravar(pasta, aba, cab, linhas, wb=None):
+    proprio = wb is None
+    wb = wb or abrir(pasta)
+    ws = wb[NOMES[aba]]
+    for i, c in enumerate(cab, 1):
+        ws.cell(1, i).value = c
+    for r, l in enumerate(linhas, 2):
+        for i, col in enumerate(cab):
+            por(ws.cell(r, i + 1), col, l[i] if i < len(l) else "")
+    if proprio:
+        salvar(wb, pasta)
 
 
 def pares(args):
@@ -115,19 +193,55 @@ def historico(pasta, aba, item, mudancas, quem):
 
 
 def criar(pasta):
+    try:
+        from openpyxl import Workbook
+    except ImportError:
+        sair("Falta o openpyxl (gratuito): pip install openpyxl")
     os.makedirs(os.path.join(pasta, "planilha"), exist_ok=True)
-    feitas, novas = [], []
+    p = arquivo(pasta)
+    feitas, novas, vindas = [], [], []
+    if not os.path.exists(p):
+        wb = Workbook()
+        wb.remove(wb.active)
+        for aba, cab in ABAS.items():
+            ws = wb.create_sheet(NOMES[aba])
+            antigo = csv_antigo(pasta, aba)  # planilha antiga em CSV: os dados vêm junto
+            if os.path.exists(antigo):
+                with open(antigo, encoding="utf-8-sig", newline="") as f:
+                    rows = list(csv.reader(f))
+                c_ant = rows[0] if rows else list(cab)
+                for i, c in enumerate(c_ant, 1):
+                    ws.cell(1, i).value = c
+                for r, l in enumerate(rows[1:], 2):
+                    for i, col in enumerate(c_ant):
+                        por(ws.cell(r, i + 1), col, l[i] if i < len(l) else "")
+                vindas.append(NOMES[aba])
+            else:
+                for i, c in enumerate(cab, 1):
+                    ws.cell(1, i).value = c
+                feitas.append(NOMES[aba])
+        salvar(wb, pasta)
+    wb = abrir(pasta)
     for aba, cab in ABAS.items():
-        if not os.path.exists(arq(pasta, aba)):
-            gravar(pasta, aba, cab, [])
+        if NOMES[aba] not in wb.sheetnames:
+            ws = wb.create_sheet(NOMES[aba])
+            for i, c in enumerate(cab, 1):
+                ws.cell(1, i).value = c
             feitas.append(NOMES[aba])
             continue
-        atual, linhas = ler(pasta, aba)  # coluna nova do kit entra no fim, sem mexer no resto
+        atual, _ = ler(pasta, aba, wb)  # coluna nova do kit entra no fim, sem mexer no resto
         falta = [c for c in cab if norm(c) not in {norm(x) for x in atual}]
+        ws = wb[NOMES[aba]]
+        for k, c in enumerate(falta, len(atual) + 1):
+            ws.cell(1, k).value = c
         if falta:
-            gravar(pasta, aba, atual + falta, [l + [""] * (len(atual) - len(l) + len(falta)) for l in linhas])
             novas.append("%s (+%s)" % (NOMES[aba], ", ".join(falta)))
+    salvar(wb, pasta)
+    import formatar
+    formatar.xlsx(p)
     print("Criadas: " + (", ".join(feitas) or "nenhuma"))
+    if vindas:
+        print("Copiadas do CSV antigo (os CSV continuam na pasta): " + ", ".join(vindas))
     if novas:
         print("Colunas novas: " + "; ".join(novas))
 

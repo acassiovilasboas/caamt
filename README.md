@@ -60,7 +60,7 @@ Ele não aplica questionário: pede cada informação quando a tarefa precisa.
 
 - Claude Desktop ou Claude Code com plano **Pro ou superior**. O kit roda na aba **Code**.
 - Opcional: conectores do **Google Drive** e do **Google Sheets** (Personalizar › Conectores) e a
-  extensão do Claude no Chrome. Sem o do Sheets, a planilha fica no computador (CSV).
+  extensão do Claude no Chrome. Sem o do Sheets, a planilha fica no computador, em Excel.
 - Use sempre a mesma pasta, no computador: a memória do kit (`memoria/`) fica nela. No celular e
   na aba Chat o kit não roda.
 - O vídeo é editado com FFmpeg, Whisper e Python. O próprio kit verifica e orienta a instalação.

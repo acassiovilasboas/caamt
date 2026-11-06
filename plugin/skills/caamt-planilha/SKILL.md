@@ -20,10 +20,16 @@ existe. Não criar "por garantia".
    se já está no perfil, não perguntar).
 2. **Drive**, com os conectores do Google Drive e do Google Sheets ligados: criar pelo conector do
    Drive (CSV com o cabeçalho da primeira aba, `text/csv`, convertido em planilha), dentro da
-   pasta `CAAMT-<Subseção>` se o script de upload já a criou, senão em Meu Drive. Adicionar as
-   outras abas pelo conector do Sheets e gravar os cabeçalhos. Ler de volta para conferir.
-   Guardar o id no perfil e o link na aba Config. Ao terminar, mandar o link da planilha.
+   pasta `CAAMT-<Subseção>`. Adicionar as outras abas pelo conector do Sheets e gravar os
+   cabeçalhos. Ler de volta para conferir. **Formatar uma vez:** montar o `abas.json` com o
+   sheetId e o cabeçalho de cada aba, rodar `python <skill>/scripts/formatar.py drive abas.json` e
+   mandar a lista que ele imprime no `update_spreadsheet`. Guardar o id no perfil e o link na aba
+   Config. Ao terminar, mandar o link da planilha.
 3. **Computador**, ou Drive sem o conector do Sheets: `planilha_local.py criar <pasta CAAMT>`.
+   Cria `planilha/planilha.xlsx` já formatado (abre no Excel). Precisa do openpyxl (gratuito):
+   faltando, pedir o "pode" e rodar `pip install openpyxl`. Quem tinha a planilha antiga em CSV:
+   o `criar` copia os dados para o Excel e deixa os CSV na pasta. Planilha aberta no Excel não
+   aceita gravação: pedir para fechar.
    No segundo caso, dizer em uma linha: "Liguei a planilha aqui no computador porque o conector do
    Google Sheets não está ativo; quando ligar, eu passo para o Drive."
 
